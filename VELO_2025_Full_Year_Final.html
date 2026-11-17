@@ -1,0 +1,476 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08090a"><title>VELO / SEOUL — 서울의 움직임을 돌리다</title><style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+:root{--bg:#090a0b;--fg:#e9e9e6;--dim:#999b99;--rule:#393b3c;--accent:#c8e87a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:Manrope,'Noto Sans KR',sans-serif}button,select{font:inherit}button{cursor:pointer}a{color:inherit}::selection{background:var(--accent);color:#101010}.mono{font:10px 'DM Mono',monospace;letter-spacing:.12em}.muted{color:var(--dim)}.shell{max-width:1720px;margin:auto;border-left:1px solid #ffffff0c;border-right:1px solid #ffffff0c}.nav{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;border-bottom:1px solid var(--rule);position:relative;z-index:10;background:#0b0c0d}.brand{font-weight:800;letter-spacing:-.08em;font-size:23px}.brand span{font-size:10px;vertical-align:top;color:var(--accent);margin-left:4px}.navlinks{display:flex;gap:38px}.navlinks a{text-decoration:none;font-size:10px;letter-spacing:.15em}.navlinks a:hover{color:var(--accent)}.navright{display:flex;gap:16px;align-items:center}.pill{border:1px solid #555;border-radius:99px;padding:10px 16px;background:transparent;color:var(--fg);font-size:10px;letter-spacing:.08em}.pill:hover{border-color:var(--accent)}.live{height:6px;width:6px;background:var(--accent);border-radius:50%;display:inline-block;margin-right:7px}.hero{height:min(850px,calc(100svh - 74px));min-height:620px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 54% 76%,#1d1f20 0,#0c0d0e 45%,#070808 90%)}.hero:after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.09;background-image:url('data:image/svg+xml,%3Csvg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="120" height="120" filter="url(%23n)" opacity=".3"/%3E%3C/svg%3E')}.hero-head{position:absolute;z-index:3;top:6%;width:100%;text-align:center;pointer-events:none}.hero-head .mono{color:#a7aaa7}.hero-head h1{font-size:clamp(43px,5.5vw,96px);font-weight:500;letter-spacing:-.085em;line-height:.98;margin:24px 0 12px}.hero-head p{font-size:13px;color:#b5b6b2;letter-spacing:-.02em}.side-rail{position:absolute;z-index:5;top:22%;left:4%;height:60%;display:flex;flex-direction:column;justify-content:space-between}.side-rail button{border:0;background:transparent;color:#777;text-align:left;padding:10px 0;font:10px 'DM Mono',monospace;letter-spacing:.13em}.side-rail button.active{color:var(--fg)}.side-rail button:before{content:'+';margin-right:18px;color:var(--accent)}.side-rail button:hover{color:var(--accent)}.side-right{position:absolute;right:4%;top:23%;z-index:5;text-align:right}.side-right .big{font-size:29px;letter-spacing:-.06em;font-weight:600;margin:10px 0}.side-right .mono{color:#a1a5a1}.wheel-stage{position:absolute;inset:0;display:flex;justify-content:center;align-items:flex-end}.wheel-wrap{width:min(77vw,950px);height:min(77vw,950px);position:relative;transform:translateY(37%);touch-action:none;cursor:grab;user-select:none;filter:drop-shadow(0 -20px 60px #ffffff0b)}.wheel-wrap:active{cursor:default}.wheel{width:100%;height:100%;overflow:visible}.rotor{transform-origin:500px 500px;transition:transform .85s cubic-bezier(.19,.8,.17,1)}.dragging .rotor{transition:none}.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:26%;height:26%;border-radius:50%;background:radial-gradient(circle at 40% 36%,#454749,#0d0e0f 52%,#060708 65%,#333638 70%,#08090a 74%);border:3px solid #373a3b;box-shadow:0 0 0 11px #0b0c0c,0 0 0 12px #3b3d3d,0 12px 40px #000;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none}.hub strong{font-size:clamp(12px,1.4vw,19px);letter-spacing:-.07em}.hub small{display:block;font:9px 'DM Mono',monospace;color:var(--accent);margin-top:7px}.wheel-pointer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:80px;background:linear-gradient(var(--accent),transparent);pointer-events:none}.wheel-pointer:before{content:'';position:absolute;top:-5px;left:-3px;width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px var(--accent)}.hero-bottom{position:absolute;z-index:6;bottom:26px;left:4%;right:4%;display:flex;justify-content:space-between;align-items:end;pointer-events:none}.hero-bottom .mono{line-height:2;color:#a7aaa7}.hero-bottom button{pointer-events:auto}.arrow{border:1px solid #6d6f6e;background:#151617;color:white;width:43px;height:43px;margin-left:7px}.arrow:hover{background:var(--accent);color:#000}.hero-stat{position:absolute;z-index:6;bottom:105px;right:4%;text-align:right;max-width:220px}.hero-stat .value{font-size:clamp(25px,3vw,43px);letter-spacing:-.075em}.hero-stat .label{font-size:12px;color:#c0c2be;margin-top:4px}.stripe{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 4%;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#111213}.stripe strong{font-size:clamp(18px,2.4vw,34px);letter-spacing:-.05em}.stripe .mono{color:#b0b3af}.section{padding:110px 4% 120px;border-bottom:1px solid var(--rule)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:58px}.section-head h2{font-size:clamp(45px,7vw,112px);line-height:.9;letter-spacing:-.09em;font-weight:500;margin:18px 0 0}.section-head p{font-size:13px;color:#aaa;line-height:1.9;max-width:345px}.eyebrow{font:11px 'DM Mono',monospace;letter-spacing:.13em;color:var(--accent)}.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}.pane{background:#0d0e0f;padding:35px;min-height:500px}.pane-head{display:flex;justify-content:space-between;align-items:center;gap:20px}.pane h3{font-size:22px;letter-spacing:-.05em;font-weight:500;margin:0}.pane .desc{font-size:12px;color:#9ea09e;line-height:1.8}.district-list{margin-top:35px}.district-row{display:grid;grid-template-columns:35px 1fr 110px;align-items:center;gap:12px;padding:12px 5px;border-bottom:1px solid #303233;cursor:pointer;transition:background .2s}.district-row:hover,.district-row.selected{background:#222521}.district-row .idx{color:#929694;font:11px 'DM Mono',monospace}.district-row .name{font-size:15px}.district-row .count{text-align:right;font:12px 'DM Mono',monospace}.district-row.selected .name,.district-row.selected .count{color:var(--accent)}.track{grid-column:2/4;height:2px;background:#272b29}.track i{display:block;height:100%;background:var(--accent)}.circle-box{display:grid;place-items:center;min-height:390px}.circle-box svg{width:min(100%,450px);overflow:visible}.month-select{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:25px}.month-select button{border:1px solid #454746;background:transparent;color:#aaa;padding:13px 0;font:11px 'DM Mono',monospace}.month-select button.active{background:var(--accent);color:#111;border-color:var(--accent)}.month-hero{display:flex;align-items:end;justify-content:space-between;margin:40px 0 0;gap:20px}.month-hero strong{font-size:clamp(32px,4.5vw,64px);letter-spacing:-.075em;font-weight:500}.month-hero small{font-size:11px;color:#999}.station-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.station{background:#111213;padding:25px 18px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}.station b{font-size:16px;font-weight:500;line-height:1.5}.station strong{font-size:25px;letter-spacing:-.06em;color:var(--accent)}.footer{padding:65px 4%;display:grid;grid-template-columns:1fr 1fr;gap:50px;color:#aaa;font-size:12px;line-height:2}.footer .brand{color:#fff;font-size:40px}.footer a{color:var(--accent)}.select{background:#151718;border:1px solid #666;color:white;padding:12px;min-width:190px}.footnote{margin-top:28px;font-size:11px;color:#9d9f9c;line-height:1.9}.badge{display:inline-block;border:1px solid #5a5e57;border-radius:40px;padding:9px 15px;font:10px 'DM Mono',monospace;letter-spacing:.1em;color:var(--accent)}.rotator-hint{position:absolute;left:50%;bottom:25px;transform:translateX(-50%);z-index:7;color:#a4a7a2;white-space:nowrap;pointer-events:none}@media(max-width:900px){.navlinks{display:none}.hero{height:760px}.hero-head{top:8%}.hero-head h1{font-size:clamp(43px,9vw,72px)}.wheel-wrap{width:105vw;height:105vw;transform:translateY(18%)}.side-rail{top:38%;height:28%}.side-right{top:34%}.hero-stat{bottom:110px}.split{grid-template-columns:1fr}.station-grid{grid-template-columns:repeat(3,1fr)}.section{padding:80px 4%}.section-head{display:block}.section-head p{margin-top:26px}}@media(max-width:600px){.nav{height:62px}.navright .mono{display:none}.hero{height:690px;min-height:0}.hero-head{top:9%}.hero-head h1{font-size:46px}.hero-head p{font-size:11px}.side-rail{top:32%;height:23%}.side-rail button{font-size:9px}.side-right{top:34%}.side-right .big{font-size:20px}.side-right .mono{font-size:8px}.wheel-wrap{width:138vw;height:138vw;transform:translateY(24%)}.hero-stat{bottom:102px;right:5%;max-width:165px}.hero-stat .value{font-size:29px}.hero-bottom{bottom:15px}.hero-bottom .mono{font-size:8px}.rotator-hint{bottom:68px;font-size:8px}.stripe{flex-wrap:wrap}.section-head h2{font-size:53px}.pane{padding:23px;min-height:0}.station-grid{grid-template-columns:repeat(2,1fr)}.station{min-height:180px}.footer{grid-template-columns:1fr}.month-hero strong{font-size:35px}.district-row{grid-template-columns:26px 1fr 100px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* VELO / FINAL EDITORIAL EXPERIENCE — non-destructive visual layer */
+:root{--accent:#d7ff6b;--bg:#080908;--fg:#f2f2ed;--rule:#333735}body{background:#080908} .shell{max-width:none;overflow:clip}.nav{position:sticky;top:0;z-index:90;background:rgba(8,9,8,.78);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:#ffffff25}.brand{font-size:27px}.navlinks a{transition:color .25s}.hero{height:calc(100svh - 74px);min-height:730px;max-height:1100px;background:radial-gradient(ellipse 65% 58% at 52% 68%,#262b26 0%,#111412 43%,#070807 100%);isolation:isolate}.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.32),transparent 38%,rgba(0,0,0,.3));z-index:1;pointer-events:none}.hero-head{top:7%;z-index:8}.hero-head h1{font-size:clamp(78px,10.8vw,210px);line-height:.78;font-weight:700;letter-spacing:-.112em;margin:23px 0 24px;mix-blend-mode:screen;text-shadow:0 1px 45px #ffffff08}.hero-head h1 .hero-outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.83)}.hero-head .mono{font-size:11px}.hero-head p{letter-spacing:.01em;font-size:13px}.wheel-stage{z-index:3;perspective:1400px}.wheel-wrap{width:min(79vw,1060px);height:min(79vw,1060px);transform:translateY(35%) rotateX(10deg);filter:drop-shadow(0 -35px 100px #c8e87a1c) drop-shadow(0 45px 24px #000);transition:filter .6s;will-change:transform}.wheel-wrap:hover{filter:drop-shadow(0 -35px 120px #d7ff6b35)}.wheel-wrap .wheel{filter:drop-shadow(0 0 15px #000)}.wheel-wrap:before{content:'';position:absolute;inset:-1.6%;border-radius:50%;border:2px solid #aeb7a030;box-shadow:inset 0 0 18px #d7ff6b14,0 0 30px #d7ff6b12;pointer-events:none}.wheel-wrap:after{content:'';position:absolute;inset:3%;border-radius:50%;border:1px dashed #d7ff6b36;pointer-events:none;animation:halo-spin 85s linear infinite}.hub{box-shadow:0 0 0 11px #0b0c0c,0 0 0 12px #636e62,0 12px 60px #000,0 0 80px #d7ff6b12}.hub strong{font-size:clamp(15px,1.5vw,22px)}.hub small{font-size:clamp(9px,1vw,13px)}.side-rail,.side-right{z-index:12}.side-rail{top:35%;height:32%}.side-right{top:37%}.hero-stat{z-index:12;bottom:110px}.hero-stat .value{font-size:clamp(33px,3.8vw,70px);font-weight:700}.hero-bottom{z-index:12}.hero-micro{position:absolute;z-index:12;left:4%;top:24%;font:10px 'DM Mono',monospace;letter-spacing:.17em;color:#8d9b88;line-height:2.1}.hero-micro span{display:block}.hero-index{position:absolute;z-index:11;right:3.5%;bottom:25%;font:600 clamp(80px,13vw,260px) Manrope,sans-serif;letter-spacing:-.12em;color:#ffffff08;pointer-events:none}.hero-scan{position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0,transparent 5px,#ffffff03 6px);opacity:.35}.hero-orbit{position:absolute;left:50%;bottom:-42%;width:min(110vw,1300px);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);border:1px solid #d7ff6b14;box-shadow:0 0 0 65px #d7ff6b05,0 0 0 135px #d7ff6b04;pointer-events:none;z-index:0}.hero-label{position:absolute;right:4%;top:18%;z-index:10;font:10px 'DM Mono',monospace;color:#c2c9bd;letter-spacing:.14em;writing-mode:vertical-rl}.marquee{overflow:hidden;white-space:nowrap;border-block:1px solid #3a4138;background:#d7ff6b;color:#11150e;padding:11px 0;font:700 12px 'DM Mono',monospace;letter-spacing:.2em}.marquee-track{display:inline-block;min-width:200%;animation:marquee-move 29s linear infinite}.marquee-track span{padding:0 36px}.stripe{background:#111411}.stripe strong{font-size:clamp(24px,3.1vw,48px)}.section{background:#090b09}.section-head h2{font-weight:700;letter-spacing:-.095em}.section-head h2::first-line{color:#f1f3eb}.pane{background:#111311}.station{background:#141714;position:relative;overflow:hidden;transition:background .3s,transform .3s}.station:hover{background:#20271a;transform:translateY(-4px)}.station:before{content:'';position:absolute;right:-40px;top:-40px;width:110px;height:110px;border:1px solid #d7ff6b19;border-radius:50%}.station strong{font-size:clamp(22px,2.2vw,34px)}.district-row{transition:background .3s,padding .3s}.district-row:hover{padding-left:12px}.section-head{position:relative}.section-head:after{content:'';position:absolute;left:0;bottom:-24px;width:100%;height:1px;background:linear-gradient(90deg,#d7ff6b66,transparent)}
+/* Scroll-scrubbed mechanical data sculpture */
+.experience{height:320vh;position:relative;background:#0a0d0a}.experience-sticky{position:sticky;top:74px;height:calc(100svh - 74px);min-height:610px;overflow:hidden;background:radial-gradient(ellipse at 51% 50%,#1c2319,#0a0c0a 59%,#060806)}.experience-grid{position:absolute;inset:0;background-image:linear-gradient(#b4db9b09 1px,transparent 1px),linear-gradient(90deg,#b4db9b09 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}.exp-top{position:absolute;z-index:8;top:6%;left:5%;right:5%;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.exp-top h2{font-size:clamp(44px,7vw,122px);line-height:.88;letter-spacing:-.1em;margin:16px 0;font-weight:700}.exp-top h2 em{font-style:normal;color:#d7ff6b}.exp-sub{font-size:12px;line-height:1.8;color:#b8c0b1;max-width:260px;text-align:right}.exp-art{position:absolute;left:50%;top:57%;width:min(68vw,700px);aspect-ratio:1;transform:translate(-50%,-50%);perspective:1500px;filter:drop-shadow(0 30px 70px #000);will-change:transform}.exp-ring,.exp-spokes,.exp-core,.exp-trace{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform,opacity}.exp-ring{border:clamp(15px,2.5vw,29px) ridge #555e53;border-radius:50%;box-shadow:inset 0 0 0 5px #0b0d0b,inset 0 0 28px #000,0 0 0 3px #8b9d81,0 0 0 7px #181e18,0 0 90px #d7ff6b12;background:radial-gradient(circle,transparent 62%,#d7ff6b0d 70%,transparent 73%)}.exp-ring:before{content:'';position:absolute;inset:8px;border:1px solid #e0f8d03d;border-radius:50%}.exp-ring:after{content:'VELO / 2025 / SEOUL';position:absolute;left:50%;top:5%;transform:translateX(-50%);color:#d7ff6b;font:9px 'DM Mono',monospace;letter-spacing:.25em;white-space:nowrap}.exp-spokes svg{width:100%;height:100%;overflow:visible}.exp-core{inset:36%;border-radius:50%;background:radial-gradient(circle at 34% 27%,#616c60,#101610 49%,#050705 62%,#8d9a85 69%,#121612 78%);border:8px solid #5c695a;box-shadow:0 0 0 10px #111611,0 0 0 12px #8a9b7b,0 0 35px #000}.exp-core:after{content:'';position:absolute;inset:33%;background:#d7ff6b;border-radius:50%;box-shadow:0 0 30px #d7ff6b8a}.exp-trace{border:1px dashed #d7ff6b44;border-radius:50%;inset:-9%;opacity:.5}.exp-data{position:absolute;z-index:8;left:5%;bottom:8%;max-width:410px}.exp-data .exp-kicker{font:10px 'DM Mono',monospace;color:#d7ff6b;letter-spacing:.2em}.exp-data strong{display:block;font-size:clamp(46px,6.2vw,110px);line-height:1;letter-spacing:-.095em;margin:13px 0}.exp-data p{font-size:12px;color:#c1c9bb;line-height:1.7}.exp-counter{position:absolute;z-index:8;right:5%;bottom:9%;font:11px 'DM Mono',monospace;letter-spacing:.15em;text-align:right;color:#9ba799}.exp-progress{height:2px;width:190px;background:#3c493a;margin:12px 0 0 auto}.exp-progress i{display:block;height:100%;width:0;background:#d7ff6b;transition:width .08s linear}.exp-note{position:absolute;right:5%;top:37%;z-index:7;font:10px 'DM Mono',monospace;color:#d7ff6b;letter-spacing:.13em}.exp-annotations{position:absolute;inset:0;pointer-events:none}.exp-annotations .tag{position:absolute;color:#b1c3a9;font:10px 'DM Mono',monospace;letter-spacing:.1em;border-top:1px solid #d7ff6b77;padding-top:10px;opacity:0;transition:opacity .3s}.exp-annotations .tag:nth-child(1){left:12%;top:46%}.exp-annotations .tag:nth-child(2){right:11%;top:60%}.exp-annotations .tag:nth-child(3){left:28%;bottom:21%}.experience-sticky.exploded .tag{opacity:1}.chapter-bridge{padding:70px 4%;background:#d7ff6b;color:#10150e;display:flex;justify-content:space-between;gap:40px;align-items:center}.chapter-bridge strong{font-size:clamp(35px,6vw,95px);line-height:.95;letter-spacing:-.085em}.chapter-bridge p{max-width:320px;font-size:13px;line-height:1.8}.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s}.reveal.is-visible{opacity:1;transform:none}.cursor-glow{position:fixed;z-index:100;pointer-events:none;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#d7ff6b0b,transparent 70%);transform:translate(-50%,-50%)}
+@keyframes halo-spin{to{transform:rotate(360deg)}}@keyframes marquee-move{to{transform:translateX(-50%)}}
+@media(max-width:900px){.hero{min-height:700px}.hero-head h1{font-size:clamp(62px,11vw,110px)}.wheel-wrap{width:106vw;height:106vw;transform:translateY(26%) rotateX(7deg)}.hero-micro{display:none}.hero-index{bottom:27%}.experience{height:290vh}.exp-art{width:min(85vw,670px);top:54%}.exp-top h2{font-size:clamp(44px,8vw,80px)}.exp-data{bottom:7%}.exp-data strong{font-size:clamp(42px,7vw,70px)}}
+@media(max-width:600px){.nav{height:62px}.hero{height:calc(100svh - 62px);min-height:630px;max-height:850px}.hero-head{top:11%}.hero-head h1{font-size:clamp(52px,13.8vw,78px);margin:22px 0 14px}.hero-head p{max-width:250px;margin:0 auto;font-size:11px}.wheel-wrap{width:152vw;height:152vw;transform:translateY(26%) rotateX(6deg)}.side-rail{top:36%;height:19%}.side-right{top:38%}.hero-stat{bottom:107px}.hero-stat .value{font-size:29px}.hero-index{display:none}.hero-label{display:none}.hero-bottom .mono{max-width:180px;line-height:1.8}.exp-top{top:5%}.exp-top h2{font-size:48px}.exp-sub{display:none}.experience-sticky{top:62px;height:calc(100svh - 62px);min-height:580px}.exp-art{width:94vw;top:49%}.exp-data{bottom:9%;left:6%;max-width:74%}.exp-data strong{font-size:48px}.exp-data p{font-size:11px}.exp-counter{right:5%;bottom:5%;font-size:9px}.exp-progress{width:90px}.exp-note{right:6%;top:31%;font-size:8px}.exp-annotations .tag{font-size:8px}.chapter-bridge{display:block;padding:45px 5%}.chapter-bridge p{margin-top:22px}.marquee{font-size:10px}.hero-orbit{bottom:-20%}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.wheel-wrap:after{animation:none}.reveal{opacity:1;transform:none}.exp-ring,.exp-spokes,.exp-core{transition:none!important}}
+</style><style id="velo-motion-additions">
+/* Additive motion layer — original content and data are unchanged. */
+.velo-particle-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:110;opacity:1}
+#expArt{cursor:pointer;touch-action:pan-y}
+#expArt:focus-visible{outline:2px solid var(--accent);outline-offset:8px}
+#expArt .exp-ring,#expArt .exp-spokes,#expArt .exp-core{will-change:transform;backface-visibility:hidden}
+#expArt.velo-pulse .exp-core{filter:drop-shadow(0 0 30px #d7ff6b99)}
+.velo-burst-hint{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);font:10px 'DM Mono',monospace;letter-spacing:.13em;color:var(--accent);white-space:nowrap;z-index:6;pointer-events:none;opacity:.8}
+.velo-burst-hint:before{content:'✳';margin-right:10px}
+@media(max-width:600px){.velo-burst-hint{font-size:8px;bottom:4%}}
+@media(prefers-reduced-motion:reduce){.velo-particle-canvas{display:none}#expArt .exp-ring,#expArt .exp-spokes,#expArt .exp-core{will-change:auto}}
+</style><style id="velo-exploded-wheel-v2">
+/* Scroll-driven exploded wheel: all original datasets and labels preserved. */
+#anatomy .exp-art{transform-style:preserve-3d;isolation:isolate}
+#anatomy .exp-ring,#anatomy .exp-spokes,#anatomy .exp-core{transform-style:preserve-3d;backface-visibility:visible;transition:filter .22s linear}
+#anatomy .exp-ring{filter:drop-shadow(0 16px 22px #0009)}
+#anatomy .exp-spokes{filter:drop-shadow(0 10px 15px #000a)}
+#anatomy .exp-core{filter:drop-shadow(0 18px 20px #000b)}
+#anatomy .experience-sticky:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:calc(var(--disassembly,0) * .3);background:radial-gradient(ellipse at 50% 56%,transparent 20%,#d7ff6b08 55%,transparent 72%)}
+#anatomy .exp-art:before{content:"";position:absolute;inset:13%;border:1px dashed #d7ff6b36;border-radius:50%;opacity:calc(var(--disassembly,0) * .9);transform:scale(calc(1 + var(--disassembly,0) * .15));pointer-events:none}
+#anatomy .exp-annotations .tag{transition:color .3s,border-color .3s}
+#anatomy .exploded .exp-annotations .tag{color:#d7ff6b;border-color:#d7ff6b55}
+@media(max-width:600px){#anatomy .exp-art{perspective:1000px}#anatomy .exp-ring{border-width:13px}}
+@media(prefers-reduced-motion:reduce){#anatomy .exp-ring,#anatomy .exp-spokes,#anatomy .exp-core,#anatomy .exp-trace{transform:none!important}#anatomy .experience-sticky:after,#anatomy .exp-art:before{display:none}}
+</style>
+<style id="vr-final-style">
+.vr-chapter{background:#090b0a;color:#edf2e9;border-top:1px solid #30372f;overflow:hidden}
+.vr-intro{padding:105px 5% 48px;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.vr-intro h2{font-size:clamp(62px,9.2vw,150px);letter-spacing:-.11em;line-height:.84;margin:18px 0 26px;font-weight:800}
+.vr-intro h2 em,.vr-bottom h3 em,.vr-month-insight h3 em{font-style:normal;color:#c8e87a}
+.vr-intro p{max-width:385px;color:#abb7a9;line-height:1.9;font-size:13px}
+.vr-eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.15em;color:#c8e87a}
+.vr-korean{font-size:15px;color:#c6d4c1}
+.vr-toolbar{padding:18px 5%;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;border-block:1px solid #394338}
+.vr-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.vr-buttons button,.vr-monthbar button{background:#101610;border:1px solid #4c5c47;color:#cddac8;padding:12px 16px;font:10px 'DM Mono',monospace;cursor:pointer}
+.vr-buttons button[aria-pressed=true],.vr-monthbar button[aria-pressed=true]{background:#c8e87a;color:#0a0f09;border-color:#c8e87a}
+.vr-buttons button:hover,.vr-monthbar button:hover{border-color:#c8e87a}
+.vr-space-scene,.vr-time-scene{height:clamp(570px,65vw,850px);position:relative;background:radial-gradient(ellipse at 50% 50%,#1a2819,#0b110c 55%,#070a08);overflow:hidden}
+.vr-space-scene canvas,.vr-time-scene canvas{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
+.vr-space-scene canvas:active,.vr-time-scene canvas:active{cursor:grabbing}
+.vr-scene-label{position:absolute;top:7%;pointer-events:none;max-width:30%;display:flex;flex-direction:column;gap:10px}
+.vr-left{left:5%}.vr-right{right:5%;text-align:right}
+.vr-scene-label strong{font-size:clamp(19px,2.7vw,42px);letter-spacing:-.065em}
+.vr-scene-label b{font-size:clamp(20px,3vw,45px);color:#c8e87a;letter-spacing:-.08em}
+.vr-scene-bottom{position:absolute;bottom:5%;left:5%;right:5%;display:flex;justify-content:space-between;gap:12px;color:#a3b09f;font:10px 'DM Mono',monospace;pointer-events:none}
+.vr-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#374334;border-block:1px solid #374334}
+.vr-metrics>div{padding:27px 3vw;background:#101710}
+.vr-metrics small{display:block;font:10px 'DM Mono',monospace;color:#9daf99;margin-bottom:13px}
+.vr-metrics strong{font-size:clamp(19px,2.4vw,37px);letter-spacing:-.065em;overflow-wrap:anywhere}
+.vr-bottom{padding:75px 5% 110px;display:flex;justify-content:space-between;gap:30px;align-items:end}
+.vr-bottom h3{font-size:clamp(37px,5.5vw,85px);line-height:.98;letter-spacing:-.09em;margin:0}
+.vr-bottom p{max-width:400px;color:#aab8a6;line-height:1.9;font-size:13px}
+.vr-time-hud{position:absolute;top:7%;left:5%;pointer-events:none}
+.vr-time-hud strong{display:block;font-size:clamp(37px,6vw,96px);letter-spacing:-.09em;margin:10px 0}
+.vr-time-hud span,.vr-time-right span{font:10px 'DM Mono',monospace;color:#a6b8a3}
+.vr-time-right{position:absolute;right:5%;top:7%;text-align:right;pointer-events:none}
+.vr-time-right strong{display:block;font-size:clamp(25px,4vw,58px);color:#c8e87a;letter-spacing:-.07em;margin:12px 0}
+.vr-monthbar{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#3b4738;border-block:1px solid #3b4738}
+.vr-monthbar button{padding:24px 6px;border:0;background:#111a12;text-align:center;display:flex;flex-direction:column;gap:10px}
+.vr-monthbar button strong{font-size:16px}
+.vr-monthbar button span{font-size:10px}
+.vr-month-insight{padding:80px 5% 105px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.vr-month-insight>div:first-child strong{display:block;font-size:clamp(60px,10vw,160px);letter-spacing:-.11em;line-height:1;margin-top:28px;color:#c8e87a}
+.vr-month-insight h3{font-size:clamp(44px,6vw,92px);letter-spacing:-.09em;line-height:.95;margin:10px 0 24px}
+.vr-month-insight p{max-width:460px;color:#adbcaa;font-size:13px;line-height:1.9}
+.vr-footer{padding:32px 5%;border-top:1px solid #344132;background:#0b100c;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#aebba9;font:10px 'DM Mono',monospace}
+.vr-footer a{color:#c8e87a}
+@media(max-width:750px){.vr-intro{display:block;padding:75px 5% 34px}.vr-intro h2{font-size:clamp(58px,12vw,90px)}.vr-intro p{margin-top:25px}.vr-space-scene,.vr-time-scene{height:620px}.vr-scene-label{top:24%;max-width:40%}.vr-scene-label strong{font-size:21px}.vr-scene-label b{font-size:23px}.vr-metrics{grid-template-columns:repeat(2,1fr)}.vr-metrics>div{padding:22px 6%}.vr-metrics strong{font-size:24px}.vr-bottom{display:block;padding:60px 5% 85px}.vr-bottom p{margin-top:26px}.vr-time-right{top:24%}.vr-time-hud strong{font-size:42px}.vr-monthbar button{padding:18px 2px}.vr-monthbar button strong{font-size:12px}.vr-monthbar button span{font-size:8px}.vr-month-insight{grid-template-columns:1fr;padding:60px 5% 80px}.vr-scene-bottom{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.vr-chapter *{scroll-behavior:auto}}
+</style>
+<style id="velo-clarity-redesign">
+.clear-section{background:#090d0a}
+.clear-hero{padding:35px 5% 75px;background:radial-gradient(ellipse at 45% 50%,#172718,#090e0a 68%)}
+.clear-compare{display:grid;grid-template-columns:1fr .8fr 1fr;align-items:center;gap:25px;text-align:center;padding:45px 0 55px}
+.clear-compare>div{display:flex;flex-direction:column;gap:13px;align-items:center}
+.clear-compare strong{font-size:clamp(30px,4.5vw,70px);letter-spacing:-.08em}
+.clear-compare b{font-size:clamp(23px,3vw,44px);color:#c8e87a;letter-spacing:-.07em}
+.clear-vs strong{font-size:clamp(75px,12vw,190px);line-height:1;color:#c8e87a;letter-spacing:-.12em}
+.clear-vs small{font:11px 'DM Mono',monospace;color:#a9b9a5;line-height:1.7}
+.clear-track{max-width:1050px;margin:auto;padding:35px;background:#0d150e;border:1px solid #384b34;border-radius:8px}
+.clear-track-title{display:flex;justify-content:space-between;color:#a0b79b;font:10px 'DM Mono',monospace;margin-bottom:25px}
+.clear-track-row{display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:center;margin:18px 0}
+.clear-track-label{font-size:17px;font-weight:700}
+.clear-track-base{height:40px;background:#1b291c;position:relative;overflow:hidden}
+.clear-track-fill{height:100%;background:#c8e87a;position:relative;min-width:3px;transition:width .85s cubic-bezier(.2,.8,.2,1)}
+.clear-track-fill.low{background:#6d8a61}
+.clear-track-fill span{position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:20px}
+.clear-ranking-head{padding:90px 5% 30px;display:flex;align-items:end;justify-content:space-between;gap:25px}
+.clear-ranking-head h3,.clear-time-bottom h3{font-size:clamp(44px,6vw,94px);letter-spacing:-.095em;line-height:.94;margin:0}
+.clear-ranking-head h3 em,.clear-time-bottom h3 em{color:#c8e87a;font-style:normal}
+.clear-ranking-head p{max-width:380px;color:#a7b7a3;line-height:1.8;font-size:13px}
+.clear-ranks{padding:0 5% 50px;display:grid;gap:5px}
+.clear-rank{display:grid;grid-template-columns:140px 1fr 120px;align-items:center;gap:18px;width:100%;padding:9px 12px;background:#101710;border:1px solid transparent;color:#edf3e9;cursor:pointer;text-align:left;min-height:48px}
+.clear-rank:hover,.clear-rank.is-selected{border-color:#c8e87a;background:#1a2719}
+.clear-rank-label{font-size:13px;font-weight:600}
+.clear-rank-track{height:17px;background:#263427;display:block;overflow:hidden}
+.clear-rank-fill{height:100%;background:#a4c66b;display:block;transition:width .7s ease}
+.clear-rank:first-child .clear-rank-fill{background:#d7ff79}
+.clear-rank:last-child .clear-rank-fill{background:#718a65}
+.clear-rank strong{font:12px 'DM Mono',monospace;text-align:right}
+.clear-selected{margin:0 5%;padding:25px 30px;border:1px solid #4a6241;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.clear-selected strong{font-size:26px}.clear-selected>span:last-child{color:#b5c6ad;font:12px 'DM Mono',monospace}
+.clear-note{padding:22px 5% 90px;color:#9eaf9a;font-size:12px}
+.clear-season{padding:35px 5% 100px}
+.clear-season-stats{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:25px 0 40px}
+.clear-season-stats>div{display:flex;flex-direction:column;gap:12px}
+.clear-season-stats strong{font-size:clamp(44px,6.5vw,102px);letter-spacing:-.095em;color:#e8f2e2}
+.clear-season-stats>div:last-child strong{color:#c8e87a}
+.clear-season-stats small{font:10px 'DM Mono',monospace;color:#a4b49f}
+.clear-road{--season-progress:40%;height:clamp(240px,35vw,450px);border:1px solid #3d5239;position:relative;overflow:hidden;background:linear-gradient(180deg,#0a110c,#1d301b 75%,#111a12)}
+.clear-road::before{content:"";position:absolute;left:0;bottom:0;height:9px;width:var(--season-progress);background:#c8e87a;box-shadow:0 0 20px #c8e87a;transition:width .7s ease}
+.clear-road-sky{position:absolute;top:12%;left:4%;right:5%;display:flex;justify-content:space-between;color:#b2c9a9;font:12px 'DM Mono',monospace}
+.clear-sun{width:66px;height:66px;border-radius:50%;background:#d7ff86;box-shadow:0 0 80px #b9f36c;transition:opacity .6s}
+.clear-road-line{position:absolute;bottom:26%;left:0;width:100%;border-top:2px dashed #607759}
+.clear-bike{position:absolute;bottom:calc(26% - 8px);left:10%;width:clamp(95px,17vw,210px);color:#d7ff79;filter:drop-shadow(0 0 14px #a6e55d);transition:left .8s cubic-bezier(.2,.7,.2,1);transform:translateY(13%)}
+.clear-bike svg{width:100%;height:auto}
+.clear-month-buttons{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:22px 0}
+.clear-month-buttons button{padding:18px 5px;border:1px solid #4b6143;background:#101a12;color:#c2d1bc;cursor:pointer;font:12px 'DM Mono',monospace}
+.clear-month-buttons button[aria-pressed=true]{background:#c8e87a;color:#0b120b}
+.clear-month-chart{height:290px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;border-bottom:1px solid #4a5b42;padding:20px 5px 0}
+.clear-month-col{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:8px;background:transparent;border:0;color:#aabfa4;cursor:pointer}
+.clear-month-col>span:first-child{font:12px 'DM Mono',monospace}
+.clear-month-column{display:block;width:75%;max-width:100px;background:#526d43;transition:height .7s}
+.clear-month-col.active .clear-month-column{background:#c8e87a;box-shadow:0 0 25px #a8d35a55}
+.clear-month-col strong{font:12px 'DM Mono',monospace;padding-bottom:8px}
+.clear-time-bottom{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:100px 0 20px}
+.clear-time-bottom p{font-size:13px;color:#adbea8;line-height:1.9}
+.clear-play{background:#c8e87a;border:0;color:#0d160d;padding:16px 22px;font-weight:700;cursor:pointer;justify-self:start}
+@media(max-width:700px){.clear-compare{gap:8px;grid-template-columns:1fr 1fr}.clear-vs{grid-column:1/-1;grid-row:1}.clear-vs strong{font-size:94px}.clear-compare strong{font-size:30px}.clear-compare b{font-size:23px}.clear-track{padding:18px}.clear-track-row{grid-template-columns:65px 1fr;gap:9px}.clear-track-label{font-size:13px}.clear-ranking-head{display:block;padding-top:70px}.clear-ranking-head p{margin-top:22px}.clear-rank{grid-template-columns:85px 1fr 78px;gap:7px;padding:8px 5px}.clear-rank-label{font-size:11px}.clear-rank strong{font-size:10px}.clear-selected{padding:18px}.clear-season-stats{gap:10px}.clear-season-stats strong{font-size:clamp(27px,7vw,52px)}.clear-road{height:310px}.clear-month-buttons button{font-size:9px;padding:14px 2px}.clear-month-chart{height:220px;gap:5px}.clear-month-col>span:first-child{font-size:10px}.clear-time-bottom{grid-template-columns:1fr;padding-top:75px}.clear-time-bottom h3{font-size:58px}}
+</style><style id="insights-2025-style">
+.insight-chapter{background:#070b08;color:#eaf3e5;border-top:1px solid #293b29;overflow:hidden}.insight-intro{padding:100px 5% 50px;display:flex;align-items:end;justify-content:space-between;gap:40px}.insight-intro h2{font-size:clamp(62px,9.2vw,145px);letter-spacing:-.105em;line-height:.85;margin:16px 0 26px}.insight-intro em,.terrain-explainer em{font-style:normal;color:#d7ff81}.insight-intro p{font-size:13px;color:#b1c0ae;line-height:1.95;max-width:390px}.insight-intro p b{color:#e6f7d8}.insight-sub{font-size:15px;color:#c7d6c0}.insight-kicker{font:10px 'DM Mono',monospace;letter-spacing:.13em;color:#d7ff81}.terrain-controls{padding:18px 5%;border-block:1px solid #354a32;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.terrain-legend{display:flex;gap:25px;flex-wrap:wrap;font-size:12px;color:#b9cbb3}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px}.dot.plus{background:#d7ff81}.dot.minus{background:#92d4e6}.terrain-buttons{display:flex;gap:8px;flex-wrap:wrap}.terrain-buttons button,.season-months button,.season-slider button{border:1px solid #50684b;background:#101a12;color:#d0e3c6;padding:12px 15px;font:11px 'DM Mono',monospace;cursor:pointer}.terrain-buttons button[aria-pressed=true],.season-months button[aria-pressed=true],.season-slider button[aria-pressed=true]{background:#d7ff81;color:#0b150c;border-color:#d7ff81}.terrain-stage,.season-stage{height:clamp(550px,58vw,790px);position:relative;background:radial-gradient(ellipse at 50% 54%,#172418,#0b130c 50%,#060a07);overflow:hidden}.terrain-stage canvas,.season-stage canvas{width:100%;height:100%;display:block}.terrain-stage canvas{cursor:crosshair;touch-action:pan-y}.terrain-stage-top,.season-head{position:absolute;top:5%;left:5%;right:5%;display:flex;justify-content:space-between;gap:20px;pointer-events:none}.terrain-stage-top>div:first-child,.season-head>div{display:flex;flex-direction:column;gap:9px}.terrain-stage-top strong,.season-head strong{font-size:clamp(34px,5vw,79px);letter-spacing:-.08em;line-height:1.1}.terrain-stage-top small,.season-head small{font:10px 'DM Mono',monospace;color:#a3b9a0}.terrain-stage-tip,.season-legend{font:10px 'DM Mono',monospace;color:#a5bca1;text-align:right;line-height:1.9}.terrain-axis{position:absolute;bottom:5%;left:5%;right:5%;display:flex;justify-content:space-between;gap:10px;font:10px 'DM Mono',monospace;color:#a5bba2;pointer-events:none}.terrain-details{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#344733;border-block:1px solid #344733}.terrain-details>div{background:#101811;padding:27px 3vw;display:flex;flex-direction:column;gap:15px}.terrain-details strong{font-size:clamp(21px,2.6vw,39px);letter-spacing:-.06em;overflow-wrap:anywhere}.terrain-explainer{padding:85px 5% 110px;display:grid;grid-template-columns:1fr 1fr;gap:40px}.terrain-explainer h3{font-size:clamp(45px,6vw,95px);letter-spacing:-.09em;line-height:.97;margin:0}.terrain-explainer p{font-size:13px;color:#b4c4ad;line-height:2;max-width:520px}.terrain-explainer .disclaimer{color:#829580;font-size:11px}.season-head>div:last-child{text-align:right;align-items:flex-end}.season-head>div:last-child strong{color:#d7ff81}.season-legend{position:absolute;bottom:6%;right:5%;pointer-events:none}.season-interface{padding:30px 5% 50px;background:#0a100b}.season-months{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.season-months button{padding:18px 4px}.season-slider{display:flex;gap:18px;align-items:center;padding:30px 0;flex-wrap:wrap}.season-slider span{font:10px 'DM Mono',monospace;color:#b4c4ad}.season-slider input{flex:1;min-width:140px;accent-color:#d7ff81;cursor:pointer}.season-chart{height:270px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;border-bottom:1px solid #3c4d39}.season-col{background:none;border:0;color:#a8bca3;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:9px;cursor:pointer}.season-col small{font:11px 'DM Mono',monospace}.season-bar{width:70%;max-width:100px;background:#536d4c;display:block;transition:height .5s ease}.season-col.active .season-bar{background:#d7ff81;box-shadow:0 0 30px #d7ff8155}.season-col b{font:12px 'DM Mono',monospace;padding-bottom:8px}.velo-last{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:35px 5%;background:#090d0a;color:#aab9a4;border-top:1px solid #334432;font:11px 'DM Mono',monospace}.velo-last strong{color:#d7ff81}
+@media(max-width:760px){.insight-intro{display:block;padding:75px 5% 36px}.insight-intro h2{font-size:clamp(57px,12vw,85px)}.insight-intro p{margin-top:25px}.terrain-stage,.season-stage{height:650px}.terrain-stage-top strong,.season-head strong{font-size:38px}.terrain-stage-tip{font-size:8px}.terrain-details{grid-template-columns:repeat(2,1fr)}.terrain-details>div{padding:21px 6%}.terrain-details strong{font-size:25px}.terrain-explainer{grid-template-columns:1fr;padding:70px 5% 85px}.season-head{top:6%}.season-head>div:last-child strong{font-size:31px}.season-months button{font-size:10px}.season-chart{height:215px;gap:6px}.terrain-axis{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.season-bar{transition:none}}
+</style><style id="season-wheel-speed-rework">
+#timeRide .season-stage{background:radial-gradient(ellipse at 50% 54%,#1b291c 0%,#0b130c 47%,#060907 100%);min-height:610px}
+#timeRide .season-stage canvas{filter:contrast(1.08)}
+#timeRide .speed-hud{position:absolute;right:4.5%;bottom:7%;z-index:5;display:flex;flex-direction:column;gap:7px;min-width:195px;padding:17px 19px;background:rgba(8,14,9,.8);border:1px solid #536b49;backdrop-filter:blur(8px);color:#d1edba;font:10px 'DM Mono',monospace;letter-spacing:.04em}
+#timeRide .speed-hud strong{font-family:Arial,sans-serif;font-size:clamp(28px,3.3vw,49px);font-weight:800;letter-spacing:-.065em;line-height:1.15;color:#e2ffb4}
+#timeRide .speed-hud small{font-size:9px;color:#a9bea2}
+#timeRide .speed-meter{height:7px;background:#263828;margin:6px 0;overflow:hidden}
+#timeRide .speed-meter i{display:block;height:100%;width:0;background:#c8e87a;box-shadow:0 0 12px #c8e87a;transition:width .55s ease}
+#timeRide .season-head{z-index:4;pointer-events:none}
+#timeRide .season-legend{z-index:4}
+@media(max-width:720px){#timeRide .season-stage{min-height:680px}#timeRide .speed-hud{right:4%;left:4%;bottom:3%;min-width:0;padding:11px 14px;gap:4px}#timeRide .speed-hud strong{font-size:28px}#timeRide .speed-hud .speed-meter{margin:3px 0}#timeRide .season-legend{display:none}}
+@media(prefers-reduced-motion:reduce){#timeRide .speed-meter i{transition:none}}
+</style><style id="velo-terrain-topography-v3">
+#spaceRide .terrain-stage{min-height:650px;background:#070b08;position:relative;overflow:hidden}
+#spaceRide .terrain-stage canvas{width:100%;height:100%;cursor:crosshair;touch-action:pan-y}
+#spaceRide .terrain-stage:after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,9,6,.28),transparent 25%,transparent 75%,rgba(5,9,6,.24))}
+#spaceRide .terrain-stage-top,#spaceRide .terrain-axis{z-index:3}
+#spaceRide .terrain-stage-tip{letter-spacing:.1em}
+@media(max-width:720px){#spaceRide .terrain-stage{min-height:560px}#spaceRide .terrain-stage-top{padding:20px}#spaceRide .terrain-stage-tip{font-size:9px}}
+</style><style id="velo-final-focused-adjustments">
+/* Page 02: larger typography, no panel or box around the lower-left readout. */
+#anatomy .exp-data{z-index:12;max-width:min(570px,88vw);padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#anatomy .exp-data .exp-kicker{font-size:clamp(12px,1.05vw,15px);color:#d7ff6b;font-weight:500;letter-spacing:.17em;text-shadow:0 2px 12px #000}
+#anatomy .exp-data strong{color:#f6ffed;font-size:clamp(55px,7.2vw,116px);line-height:1.02;margin:12px 0 14px;font-variant-numeric:tabular-nums;text-shadow:0 3px 22px #000,0 0 45px #000}
+#anatomy .exp-data p{font-size:clamp(14px,1.2vw,17px);line-height:1.8;color:#edf5e8;margin:0;word-break:keep-all;text-shadow:0 2px 13px #000}
+#spaceRide .terrain-stage canvas{cursor:crosshair}
+@media(max-width:600px){#anatomy .exp-data{left:5%;bottom:9%;max-width:88%;padding:0}#anatomy .exp-data strong{font-size:clamp(43px,10vw,65px)}#anatomy .exp-data p{font-size:13px;line-height:1.65}}
+</style><style id="velo-rotating-lime-pointer">
+/* The thin center reference stays fixed while wheel spokes pass underneath. */
+#wheel .wheel-pointer{top:0;left:50%;transform:translateX(-50%);transform-origin:center top;transition:none;will-change:auto}
+</style><style id="velo-page2-hide-small-green-text">
+/* Page 2 only: remove small green captions; preserve large values and animation. */
+#anatomy .exp-top .eyebrow,
+#anatomy .exp-note,
+#anatomy .exp-data .exp-kicker,
+#anatomy .exp-annotations .tag,
+#anatomy .velo-burst-hint { display:none !important; }
+#anatomy .exp-ring::after { content:none !important; }
+</style><style id="velo-last-page-compact-pedal">
+/* Page 4 only: smaller scene and compact lower-left crankset. */
+#timeRide .season-stage{height:clamp(430px,43vw,560px);min-height:430px}
+#timeRide .season-head{top:7%}
+#timeRide .season-legend{bottom:7%}
+#timeRide .speed-hud{right:5%;bottom:18%;min-width:185px}
+@media(max-width:720px){
+ #timeRide .season-stage{height:520px;min-height:520px}
+ #timeRide .speed-hud{left:auto;right:4%;bottom:16%;width:min(48%,200px);padding:10px 12px}
+ #timeRide .speed-hud strong{font-size:24px}
+ #timeRide .season-legend{display:none}
+}
+#timeRide .season-months{grid-template-columns:repeat(12,minmax(0,1fr))}#timeRide .season-chart{grid-template-columns:repeat(12,minmax(0,1fr));gap:7px}#timeRide .season-months button{padding:17px 1px;font-size:9px}#timeRide .season-col small{font-size:9px}#timeRide .season-col b{font-size:10px}@media(max-width:800px){#timeRide .season-months{grid-template-columns:repeat(6,1fr)}#timeRide .season-chart{gap:3px}#timeRide .season-col small{font-size:8px}#timeRide .season-col b{font-size:8px}}
+</style></head><body><div class="shell"><nav class="nav"><div class="brand">VELO<span>®</span></div><div class="navlinks"><a href="#wheel">THE WHEEL</a><a href="#anatomy">EXPERIENCE</a><a href="#spaceRide">01 / SPACE</a><a href="#timeRide">02 / TIME</a></div><div class="navright"><span class="mono muted"><i class="live"></i>SEOUL OPEN DATA / 2025</span><a href="#spaceRide" class="pill" style="text-decoration:none">EXPLORE DATA ↗</a></div></nav><main><section class="hero" id="wheel"><div class="hero-scan"></div><div class="hero-orbit"></div><div class="hero-micro"><span>SEOUL / 37°33′N</span><span>PUBLIC BICYCLE NETWORK</span><span>DATA-DRIVEN CITY PORTRAIT</span></div><div class="hero-index" aria-hidden="true">25</div><div class="hero-label">INTERACTIVE EXPERIMENT / 001</div><div class="hero-head"><div class="mono">WELCOME / AN INTERACTIVE CITY PORTRAIT</div><h1>THE CITY<br><span class="hero-outline">IS IN MOTION.</span></h1><p>서울은 어디에서 가장 활발하게 자전거를 빌릴까?</p></div><div class="side-rail"><button class="active" onclick="document.getElementById('wheel').scrollIntoView()">01<br>THE WHEEL</button><button onclick="document.getElementById('spaceRide').scrollIntoView()">03<br>THE FLOW</button><button onclick="document.getElementById('timeRide').scrollIntoView()">04<br>THE TIME</button></div><div class="side-right"><div class="mono">01 — 12 / 2025</div><div class="big" id="rankHero">01 / 25</div><div class="mono">DISTRICT RANKING</div></div><div class="wheel-stage"><div class="wheel-wrap" id="wheelWrap" role="slider" tabindex="0" aria-label="자치구 선택 바퀴" aria-valuemin="1" aria-valuemax="25" aria-valuenow="1"><svg class="wheel" viewBox="0 0 1000 1000"><defs><radialGradient id="tire" cx="48%" cy="42%"><stop offset="0" stop-color="#1a1b1c"/><stop offset=".77" stop-color="#090a0b"/><stop offset=".93" stop-color="#242627"/><stop offset=".98" stop-color="#090a0b"/><stop offset="1" stop-color="#3e4141"/></radialGradient><linearGradient id="metal"><stop stop-color="#151718"/><stop offset=".26" stop-color="#595b5b"/><stop offset=".5" stop-color="#161819"/><stop offset=".75" stop-color="#444748"/><stop offset="1" stop-color="#17191a"/></linearGradient></defs><circle cx="500" cy="500" r="488" fill="url(#tire)" stroke="#333536" stroke-width="8"/><circle cx="500" cy="500" r="467" fill="none" stroke="#555858" stroke-width="2"/><circle cx="500" cy="500" r="454" fill="none" stroke="#151718" stroke-width="15"/><circle cx="500" cy="500" r="436" fill="none" stroke="#515454" stroke-width="3"/><g id="rotor" class="rotor"></g><circle cx="500" cy="500" r="120" fill="#111213" stroke="#525555" stroke-width="3"/><circle cx="500" cy="500" r="110" fill="none" stroke="#252829" stroke-width="14"/></svg><div class="hub"><div><strong id="hubName">강서구</strong><small id="hubRent">4,609,064</small></div></div><div class="wheel-pointer"></div></div></div><div class="hero-stat"><div class="mono muted">SELECTED DISTRICT / RENTALS</div><div class="value" id="heroValue">4,609,064</div><div class="label" id="heroDistrict">강서구 · 12.33% OF SEOUL</div></div><div class="hero-bottom"><div class="mono">AUTOMATIC ROTATION / WATCH THE CITY MOVE<br>25 DISTRICTS · 12 MONTHS · ONE CITY</div><div><button class="arrow" id="prev" aria-label="이전 자치구">←</button><button class="arrow" id="next" aria-label="다음 자치구">→</button></div></div><div class="rotator-hint mono">↻ THE WHEEL ROTATES AUTOMATICALLY</div></section><div class="marquee" aria-label="서울 따릉이 데이터 프로젝트"><div class="marquee-track"><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span><span>VELO — SEOUL IN MOTION ✳ 25 DISTRICTS ✳ 37,373,092 RENTALS ✳ JAN—DEC 2025 ✳ TURN THE CITY ✳</span></div></div><div class="stripe"><span class="mono">TOTAL RENTALS / JAN—DEC</span><strong>37,373,092</strong><span class="mono">TOTAL RETURNS</span><strong>37,174,392</strong><span class="mono">SEOUL / 25 DISTRICTS</span></div><section class="experience" id="anatomy" aria-label="자전거 휠 분해 인터랙션"><div class="experience-sticky" id="expSticky"><div class="experience-grid"></div><div class="exp-top"><div><span class="eyebrow">INTERLUDE / THE ANATOMY OF MOTION</span><h2>BREAK<br>THE <em>WHEEL.</em></h2></div><p class="exp-sub">하나의 바퀴, 25개의 자치구.<br>스크롤을 내리면 도시의 움직임을 구성하는 데이터가 층층이 드러납니다.</p></div><div class="exp-note">↓ SCROLL TO DISASSEMBLE</div><div class="exp-art" id="expArt"><div class="exp-trace" id="expTrace"></div><div class="exp-ring" id="expRing"></div><div class="exp-spokes" id="expSpokes"><svg viewBox="0 0 1000 1000" id="expSvg" aria-hidden="true"></svg></div><div class="exp-core" id="expCore"></div></div><div class="exp-annotations"><span class="tag">01 / RIM<br>THE CITY FRAME</span><span class="tag">02 / 25 SPOKES<br>25 DISTRICTS</span><span class="tag">03 / HUB<br>37,373,092 RENTALS</span></div><div class="exp-data"><span class="exp-kicker" id="expKicker">01 / ONE CITY</span><strong id="expValue">37,373,092</strong><p id="expDesc">2025년 전체 서울에서 기록된 공공자전거 대여건수. 페달의 회전은 도시 전체의 움직임을 상징합니다.</p></div><div class="exp-counter"><span id="expStep">00 / 100</span><div class="exp-progress"><i id="expBar"></i></div></div></div></section><section class="insight-chapter" id="spaceRide">
+<div class="insight-intro"><div><span class="insight-kicker">03 / SPATIAL INEQUALITY · RENT / RETURN</span><h2>WHERE DOES<br>THE RIDE <em>GO?</em></h2><div class="insight-sub">자전거는 어디에서 출발하고, 어디에서 멈출까?</div></div><p>서울 25개 자치구의 대여·반납 건수 차이를 깊이감 있는 3D 와이어프레임 데이터 지형으로 표현했습니다. <b>산봉우리와 골짜기의 높이는 실제 순차이</b>를 나타냅니다. 지역을 선택하면 정확한 수치가 나타납니다.</p></div>
+<div class="terrain-controls"><div class="terrain-legend"><span><i class="dot plus"></i> 대여 초과 / NET OUT</span><span><i class="dot minus"></i> 반납 초과 / NET IN</span></div><div class="terrain-buttons"><button id="terrainSort" aria-pressed="true">↕ 차이 큰 순</button><button id="terrainAlpha" aria-pressed="false">가나다순</button><button id="terrainReset">↻ 전체 보기</button></div></div>
+<div class="terrain-stage" id="terrainStage"><canvas id="terrainCanvas" aria-label="25개 자치구의 대여량과 반납량 차이를 나타내는 인터랙티브 산맥"></canvas><div class="terrain-stage-top"><div><span class="insight-kicker">NET FLOW LANDSCAPE</span><strong id="terrainTotal">—</strong><small>SEOUL-WIDE RENTALS − RETURNS</small></div><div class="terrain-stage-tip">HOVER / TAP THE RIDGE<br>25 DISTRICTS · LIVE VALUES</div></div><div class="terrain-axis"><span>▲ MORE RENTALS</span><span>0 / BALANCED</span><span>▼ MORE RETURNS</span></div></div>
+<div class="terrain-details"><div><span class="insight-kicker">SELECTED DISTRICT</span><strong id="terrainName">—</strong></div><div><span class="insight-kicker">RENTALS / 대여</span><strong id="terrainRent">—</strong></div><div><span class="insight-kicker">RETURNS / 반납</span><strong id="terrainReturn">—</strong></div><div><span class="insight-kicker">NET DIFFERENCE / 차이</span><strong id="terrainNet">—</strong></div></div>
+<div class="terrain-explainer"><h3>ONE CITY.<br><em>TWO DIRECTIONS.</em></h3><div><p>대여가 반납보다 많은 지역은 위로 솟아오르고, 반납이 더 많은 지역은 기준선 아래로 내려갑니다. 25개 자치구의 순차이를 지형의 봉우리와 골짜기로 변환했습니다. 실제 데이터 사이의 곡선과 표면은 시각적 연결을 위한 보간 표현입니다.</p><p class="disclaimer">* 이 시각화는 자치구별 대여·반납 집계의 차이를 보여줍니다. 실제 자전거 이동 경로나 지역 간 이동량을 의미하지 않습니다.</p></div></div></section>
+<section class="insight-chapter" id="timeRide"><div class="insight-intro"><div><span class="insight-kicker">04 / TEMPORAL RHYTHM · JAN—DEC 2025</span><h2>THE CITY<br><em>WAKES UP.</em></h2><div class="insight-sub">계절이 바뀌면 도시의 페달도 빨라진다.</div></div><p>겨울의 느린 페달이 봄과 가을의 이용량 변화를 거쳐 다시 겨울로 이어집니다. <b>입체적인 입체 체인링, 크랭크 암, 페달, 회전 잔상과 속도 게이지</b>를 통해 변화의 폭을 직관적으로 느껴보세요. 월을 선택하거나 슬라이더를 움직여 1월과 12월의 회전 속도를 비교해 보세요.</p></div>
+<div class="season-stage" id="seasonStage"><canvas id="seasonCanvas" aria-label="월별 대여량에 따라 회전 속도가 달라지는 입체 자전거 크랭크셋과 페달"></canvas><div class="season-head"><div><span class="insight-kicker" id="seasonMonthLabel">JANUARY / 2025</span><strong id="seasonValue">—</strong><small>MONTHLY RENTALS</small></div><div><span class="insight-kicker">RELATIVE TO JANUARY</span><strong id="seasonDelta">—</strong><small>CHANGE IN RIDES</small></div></div><div class="season-legend">3D CRANKSET / MONTHLY RIDES<br>ROTATION SPEED = VISUAL METAPHOR</div><div class="speed-hud"><span>PEDAL CADENCE / VISUAL INDEX</span><strong id="seasonRpm">—</strong><small>REV / SEC · VISUALIZED</small><div class="speed-meter"><i id="seasonSpeedFill"></i></div><span id="seasonSpeedText">WINTER / SLOW PEDAL</span></div></div>
+<div class="season-interface"><div class="season-months" id="seasonMonths"></div><div class="season-slider"><span>JAN / WINTER</span><input id="seasonRange" type="range" min="0" max="11" value="0" step="1" aria-label="1월부터 12월까지 월 선택"/><span>DEC / WINTER</span><button id="seasonPlay" aria-pressed="false">▶ PLAY THE SEASON</button></div><div class="season-chart" id="seasonChart"></div></div>
+<div class="terrain-explainer"><h3>FROM WINTER<br><em>TO MOTION.</em></h3><div><p>1월에서 12월로 이어지는 월별 대여량 변화를 직접 비교할 수 있습니다. 페달 회전 속도는 월별 대여 건수를 기준으로 차이를 강조해 연출한 시각적 지표입니다. 실제 자전거 주행 속도나 측정된 RPM은 아닙니다.</p><p class="disclaimer">* 계절에 따른 이용량 차이는 확인할 수 있지만, 기온과의 직접적인 인과관계는 별도 날씨 데이터 분석이 필요합니다.</p></div></div></section>
+<footer class="velo-last"><strong>VELO®</strong><span>ONE CITY. DIFFERENT RHYTHMS.</span><span>SEOUL PUBLIC BICYCLE / 2025 JAN—DEC</span></footer></main></div>
+<script id="velo-final-runtime">
+const D=[{"name":"강서구","rent":4609064,"returns":4589597,"stations":[{"name":"2715.마곡나루역 2번 출구 ","rent":162990,"returns":166035},{"name":"2728.마곡나루역 3번 출구","rent":108585,"returns":108650},{"name":"2701. 마곡나루역 5번출구 뒤편","rent":107280,"returns":109157},{"name":"1153. 발산역 1번, 9번 인근 대여소","rent":86041,"returns":85757},{"name":"1124. 발산역 6번 출구 뒤","rent":68230,"returns":68606}],"months":[235280,223884,348457,411541,441974,475103,445963,440620,496147,413815,403846,272434],"stationCount":203},{"name":"송파구","rent":3495831,"returns":3487141,"stations":[{"name":"1210. 롯데월드타워(잠실역2번출구 쪽)","rent":110039,"returns":109678},{"name":"2608. 송파구청","rent":69836,"returns":71992},{"name":"2622. 올림픽공원역 3번출구","rent":67850,"returns":67509},{"name":"4870. 몽촌토성역 3번 출구","rent":59446,"returns":59041},{"name":"5768.방이삼거리","rent":56523,"returns":60546}],"months":[144406,141831,268592,357121,378922,387607,327515,330038,371011,321595,294635,172558],"stationCount":223},{"name":"영등포구","rent":3421135,"returns":3376903,"stations":[{"name":"272. 당산육갑문","rent":59022,"returns":61847},{"name":"4565. 영등포 신세계백화점","rent":58421,"returns":58309},{"name":"207. 여의나루역 1번출구 앞","rent":56409,"returns":54062},{"name":"5858. 영등포역5번출구","rent":55460,"returns":62030},{"name":"247. 당산역 10번출구 앞","rent":53162,"returns":53608}],"months":[161681,157461,264728,327888,338024,354335,324769,326636,366898,316144,296372,186199],"stationCount":175},{"name":"양천구","rent":2299726,"returns":2315379,"stations":[{"name":"769.CBS방송국 앞","rent":60995,"returns":63356},{"name":"785.양천구청, 보건소 사잇길","rent":60586,"returns":62686},{"name":"792.목동트라팰리스 웨스턴에비뉴","rent":59807,"returns":60660},{"name":"765. 오목교역 3번출구","rent":58980,"returns":63024},{"name":"781.신정보도육교 아래","rent":56574,"returns":56441}],"months":[115376,106314,176579,211488,223984,239484,216627,223889,240094,208663,206533,130695],"stationCount":111},{"name":"노원구","rent":2243827,"returns":2241640,"stations":[{"name":"1625. 상계역 3번출구","rent":51195,"returns":51300},{"name":"1601. 석계역 문화광장 내 자전거 보관소","rent":45758,"returns":49687},{"name":"4029. 청소년수련관 후문","rent":45665,"returns":46642},{"name":"1608. 공릉역 1번 출구 앞","rent":42707,"returns":45680},{"name":"1637. KT 전화국 버스정류장 옆","rent":39523,"returns":40803}],"months":[104538,95893,172243,219777,237213,251508,214255,212351,232135,198354,189651,115909],"stationCount":153},{"name":"광진구","rent":1821787,"returns":1792159,"stations":[{"name":"502. 자양(뚝섬한강공원)역 1번출구 앞","rent":94996,"returns":106390},{"name":"3533. 건대입구역 사거리(롯데백화점)","rent":62520,"returns":67234},{"name":"3534. 건대입구역 5번출구 뒤","rent":53813,"returns":55463},{"name":"3518. 군자역 7번출구뒤","rent":49684,"returns":49787},{"name":"3569.건대병원후문","rent":48354,"returns":49785}],"months":[79232,75907,148931,187956,193081,202514,169644,166969,186508,162127,152946,95972],"stationCount":93},{"name":"강동구","rent":1779017,"returns":1792321,"stations":[{"name":"1050.  둔촌역 3번 출입구","rent":55415,"returns":57487},{"name":"1009. 천호역4번출구(현대백화점)","rent":52988,"returns":52818},{"name":"1019. 다성이즈빌아파트(호원대 대각선 맞은편)","rent":48553,"returns":51627},{"name":"1078.둔촌사거리","rent":44487,"returns":44931},{"name":"1020. 강동경찰서","rent":43959,"returns":44460}],"months":[74725,71035,131013,171126,191402,203018,172879,172844,188083,159341,151434,92117],"stationCount":124},{"name":"마포구","rent":1758355,"returns":1766918,"stations":[{"name":"4217. 한강공원 망원나들목","rent":88346,"returns":92984},{"name":"113. 홍대입구역 2번출구 앞","rent":57370,"returns":70993},{"name":"4233. 코오롱아파트사거리","rent":38474,"returns":39849},{"name":"5515.한강버스 망원 선착장","rent":36062,"returns":32906},{"name":"3010.홍대입구역 3번출구","rent":35882,"returns":36862}],"months":[73887,70252,137771,175854,194516,185331,155976,168829,200945,167441,145493,82060],"stationCount":122},{"name":"구로구","rent":1531714,"returns":1527433,"stations":[{"name":"1911. 구로디지털단지역 앞","rent":63370,"returns":64724},{"name":"1906. 신도림역 1번 출구 앞","rent":57017,"returns":57181},{"name":"3939.신도림역 3번출구","rent":50925,"returns":57382},{"name":"1925. 동양미래대학교 정문 옆","rent":42974,"returns":42950},{"name":"1985. 구로도서관","rent":40630,"returns":37241}],"months":[75016,69624,115959,146382,152171,161080,143336,146560,163896,138132,133817,85741],"stationCount":115},{"name":"성동구","rent":1425972,"returns":1433565,"stations":[{"name":"529. 장한평역 8번 출구 앞","rent":56848,"returns":55422},{"name":"583. 청계천 생태교실 앞","rent":54378,"returns":57007},{"name":"508. 성수아카데미타워 앞","rent":53440,"returns":50098},{"name":"585. 성수2가1동 공영주차장 인근","rent":46412,"returns":47637},{"name":"565. 옥수역 3번출구","rent":37161,"returns":39156}],"months":[62738,62202,114454,149697,154210,154517,129801,124323,150621,134504,117608,71297],"stationCount":98},{"name":"강남구","rent":1275795,"returns":1221622,"stations":[{"name":"2377. 수서역 5번출구","rent":30747,"returns":33100},{"name":"2340. 삼호물산버스정류장(23370) 옆","rent":24738,"returns":27037},{"name":"2335. 3호선 매봉역 3번출구앞","rent":21605,"returns":24009},{"name":"2306. 압구정역 2번 출구 옆","rent":19819,"returns":19570},{"name":"2348. 포스코사거리(기업은행)","rent":19721,"returns":21304}],"months":[51838,50644,94750,132632,132172,140298,118844,123118,138877,120761,109853,62008],"stationCount":177},{"name":"동대문구","rent":1238754,"returns":1270879,"stations":[{"name":"602. 장안동 사거리","rent":35121,"returns":40649},{"name":"4137. 답십리역 4번출구","rent":34888,"returns":40503},{"name":"631. 답십리역 1번출구","rent":33874,"returns":38037},{"name":"4108. 답십리파크자이아파트 앞","rent":33683,"returns":34034},{"name":"670.삼육서울병원 버스정류장","rent":33237,"returns":35172}],"months":[56178,52584,97206,118295,129356,135956,116628,116232,131346,111930,106155,66888],"stationCount":91},{"name":"종로구","rent":1188787,"returns":1139743,"stations":[{"name":"361. 동묘앞역 1번출구 뒤","rent":35164,"returns":37413},{"name":"3410.종로3가역 8번출구","rent":29834,"returns":29978},{"name":"3413.종로플레이스","rent":28547,"returns":30156},{"name":"305. 종로구청 옆","rent":27996,"returns":27168},{"name":"308. 광화문 S타워 앞","rent":27916,"returns":25947}],"months":[56623,59215,89929,109254,117096,122170,117604,110007,126301,110066,105612,64910],"stationCount":102},{"name":"서초구","rent":1129890,"returns":1119925,"stations":[{"name":"2219. 고속터미널역 8-1번, 8-2번 출구 사이","rent":36560,"returns":37042},{"name":"2217.아크로리버뷰 부지 앞","rent":27845,"returns":32651},{"name":"2525.반포쇼핑타운 2동 앞","rent":26149,"returns":31339},{"name":"2264. 이수역 1번출구","rent":25210,"returns":28067},{"name":"2255. 양재시민의숲역 1번출구","rent":22893,"returns":23023}],"months":[45172,44485,85515,117180,121344,124473,106785,108657,121330,103047,95372,56530],"stationCount":151},{"name":"중랑구","rent":1013360,"returns":1025677,"stations":[{"name":"1451. 중랑세무서","rent":27443,"returns":30597},{"name":"1455. 상봉역 2번 출구","rent":25798,"returns":27253},{"name":"1447. 면목역 3번출구","rent":25632,"returns":30180},{"name":"1449. 상봉역 1번출구","rent":25244,"returns":25572},{"name":"1452. 겸재교 진입부","rent":23988,"returns":27510}],"months":[46884,43461,77229,96127,106038,112081,97210,97830,107053,92293,84464,52690],"stationCount":96},{"name":"중구","rent":878117,"returns":840553,"stations":[{"name":"383. 신당역 12번 출구 뒤","rent":38944,"returns":40485},{"name":"431. 청계천 영도교","rent":38061,"returns":38045},{"name":"6058. 서울도시건축전시관 옆","rent":25364,"returns":25697},{"name":"4798. 황학동롯데캐슬","rent":23209,"returns":23637},{"name":"474.동대문역사문화공원역 1번출구 뒤편","rent":23056,"returns":19347}],"months":[40791,41402,69047,84399,86667,89387,85674,80854,95308,80890,75950,47748],"stationCount":97},{"name":"은평구","rent":846468,"returns":866749,"stations":[{"name":"907. CJ 드림시티","rent":36854,"returns":44714},{"name":"996.응암역2번출구 국민은행 앞","rent":36760,"returns":52013},{"name":"931. 역촌파출소","rent":33376,"returns":37094},{"name":"906. 연신내역 5번출구","rent":26008,"returns":28824},{"name":"914. 새절역 2번출구","rent":25545,"returns":29686}],"months":[38797,34730,63651,81395,89607,92800,80243,84035,93161,77692,69140,41217],"stationCount":98},{"name":"도봉구","rent":776524,"returns":775413,"stations":[{"name":"4065. 창동역 1번출구 앞","rent":37091,"returns":40392},{"name":"1744.도봉소방서 옆","rent":22474,"returns":23255},{"name":"1737. 신창시장","rent":19060,"returns":21036},{"name":"4087. 우이교 교차로","rent":18225,"returns":18585},{"name":"4096.창동역2번출구 하나은행365 앞","rent":18146,"returns":23106}],"months":[33420,31273,57374,72908,82055,88926,77148,75981,83396,70494,64237,39312],"stationCount":76},{"name":"성북구","rent":753457,"returns":757785,"stations":[{"name":"1308. 안암로터리 버스정류장 앞","rent":33915,"returns":37125},{"name":"1328. 월곡역 3번출구","rent":24995,"returns":27694},{"name":"1363. 보문4교 인근","rent":24238,"returns":25286},{"name":"1381.석계역 4번출구 뒤","rent":23437,"returns":24202},{"name":"1337. 돈암성당 옆","rent":21307,"returns":22965}],"months":[33672,30697,60925,74563,77970,81044,70196,70290,82511,70092,63679,37818],"stationCount":82},{"name":"관악구","rent":734575,"returns":726031,"stations":[{"name":"2102. 봉림교 교통섬","rent":59341,"returns":61064},{"name":"2136. 신림역 8번출구","rent":38233,"returns":39935},{"name":"2177. 신대방역 2번 출구","rent":34612,"returns":37300},{"name":"2173. 당곡사거리","rent":27901,"returns":28219},{"name":"2109. 은천로입구 가로공원","rent":27578,"returns":27851}],"months":[34087,31164,56661,71467,77728,84260,74739,74942,75348,62822,57551,33806],"stationCount":72},{"name":"용산구","rent":726036,"returns":717938,"stations":[{"name":"853.용산역 맞은편","rent":36090,"returns":37238},{"name":"870.노들섬 서측 앞","rent":31097,"returns":31486},{"name":"825. 서빙고동 주민센터 앞","rent":23677,"returns":27776},{"name":"829. 한강대교 북단 교차로","rent":22199,"returns":20463},{"name":"816. 신용산역 6번출구 앞","rent":19437,"returns":20358}],"months":[26578,27014,55443,72839,81345,80223,64827,72383,83531,69890,59763,32200],"stationCount":91},{"name":"서대문구","rent":687217,"returns":655317,"stations":[{"name":"117. 홍은사거리","rent":29816,"returns":29888},{"name":"131. 증산2교","rent":20454,"returns":22851},{"name":"194. 증산교 앞","rent":19408,"returns":20386},{"name":"176. 명지대학교 도서관","rent":18971,"returns":19318},{"name":"133. 해담는다리","rent":18956,"returns":21247}],"months":[30980,29778,55623,70037,73003,70939,60259,64306,74994,63084,58501,35713],"stationCount":83},{"name":"동작구","rent":639142,"returns":642349,"stations":[{"name":"4179. 보라매병원역 1번출구","rent":32791,"returns":34246},{"name":"2002. 노들역 1번출구","rent":32066,"returns":36153},{"name":"2050. 노량진역 5번출구","rent":22919,"returns":28454},{"name":"2025. 흑석역 1번출구","rent":21081,"returns":25139},{"name":"237. 보라매 두산위브 건너편","rent":19663,"returns":20757}],"months":[27236,25533,47739,62719,68716,70414,60121,63575,70979,58896,52840,30374],"stationCount":73},{"name":"금천구","rent":627393,"returns":627151,"stations":[{"name":"1867.대륭포스트타워6차 앞","rent":52910,"returns":57624},{"name":"1851. 가산디지털단지 9번출구 인근","rent":29777,"returns":29630},{"name":"3966. 독산역1번출구 B","rent":22659,"returns":25039},{"name":"1827. 독산보도육교 앞 자전거 보관소","rent":18055,"returns":19198},{"name":"1824. 독산근린공원 입구","rent":17242,"returns":17498}],"months":[32750,31713,49622,61345,60782,64553,59829,58790,64982,54509,53439,35079],"stationCount":79},{"name":"강북구","rent":471149,"returns":464204,"stations":[{"name":"1569.수유역2번출구","rent":29514,"returns":30595},{"name":"1503. 강북구청사거리(수유역 8번출구)","rent":22550,"returns":23988},{"name":"1531. 미아사거리 1번 출구","rent":22362,"returns":23796},{"name":"1535. 효성인텔리안 앞","rent":20918,"returns":21195},{"name":"1512. 강북중학교 앞","rent":18909,"returns":19161}],"months":[22451,21444,37510,46810,50012,52294,45331,45204,46871,41229,38094,23899],"stationCount":59}];
+const $=id=>document.getElementById(id),fmt=n=>Math.round(n).toLocaleString('en-US'),TOTAL=D.reduce((s,d)=>s+d.rent,0);
+(function originalHero(){
+ const NS='http://www.w3.org/2000/svg',rotor=$('rotor'),wrap=$('wheelWrap'),pointer=wrap.querySelector('.wheel-pointer'),step=360/D.length;
+ let selected=-1,rotation=0,lastFrame=0;
+ const spokes=[];
+ for(let i=0;i<D.length;i++){
+  const a=i*2*Math.PI/D.length,line=document.createElementNS(NS,'line');
+  line.setAttribute('x1',500+115*Math.sin(a));line.setAttribute('y1',500-115*Math.cos(a));
+  line.setAttribute('x2',500+425*Math.sin(a));line.setAttribute('y2',500-425*Math.cos(a));
+  line.setAttribute('stroke','#747c73');line.setAttribute('stroke-width','2.4');line.setAttribute('opacity','.65');
+  rotor.append(line);spokes.push(line);
+ }
+ // Highlight only the spoke currently arriving at the stationary top reference.
+ let activeSpoke=-1;
+ function syncSpoke(tick){
+  const i=(((-tick)%D.length)+D.length)%D.length;
+  if(i===activeSpoke)return;
+  if(activeSpoke>=0){spokes[activeSpoke].setAttribute('stroke','#747c73');spokes[activeSpoke].setAttribute('stroke-width','2.4');spokes[activeSpoke].setAttribute('opacity','.65');}
+  spokes[i].setAttribute('stroke','#c8e87a');spokes[i].setAttribute('stroke-width','6');spokes[i].setAttribute('opacity','1');activeSpoke=i;
+ }
+ rotor.style.transition='none';wrap.style.cursor='default';wrap.style.touchAction='pan-y';
+ function updateDistrict(i){
+  i=((i%D.length)+D.length)%D.length;if(i===selected)return;selected=i;
+  const d=D[i];$('hubName').textContent=d.name;$('hubRent').textContent=fmt(d.rent);
+  $('rankHero').textContent=String(i+1).padStart(2,'0')+' / 25';
+  $('heroValue').textContent=fmt(d.rent);
+  $('heroDistrict').textContent=d.name+' · '+(d.rent/TOTAL*100).toFixed(2)+'% OF SEOUL';
+  wrap.setAttribute('aria-valuenow',String(i+1));wrap.setAttribute('aria-valuetext',d.name);
+ }
+ // One gentle clockwise revolution every 100 seconds; no dragging or clicking required.
+ const degreesPerSecond=360/100;
+ function animate(now){
+  if(lastFrame){const dt=Math.min((now-lastFrame)/1000,.08);rotation+=degreesPerSecond*dt;}
+  lastFrame=now;
+  rotor.style.transform=`rotate(${rotation}deg)`;
+  // Stationary reference: switch the highlighted wheel spoke when the next one reaches it.
+  const tick=Math.floor((rotation+step/2)/step);
+  syncSpoke(tick);
+  updateDistrict(tick);
+  requestAnimationFrame(animate);
+ }
+ syncSpoke(0);updateDistrict(0);requestAnimationFrame(animate);
+ // Existing arrow and keyboard controls remain usable without interfering with autoplay.
+ $('prev').onclick=()=>{rotation-=step;updateDistrict(Math.floor((rotation+step/2)/step))};
+ $('next').onclick=()=>{rotation+=step;updateDistrict(Math.floor((rotation+step/2)/step))};
+ wrap.addEventListener('keydown',e=>{if(['ArrowRight','ArrowUp','ArrowLeft','ArrowDown'].includes(e.key)){
+  e.preventDefault();rotation+=(['ArrowRight','ArrowUp'].includes(e.key)?step:-step);
+  updateDistrict(Math.floor((rotation+step/2)/step));
+ }});
+ const rail=document.querySelectorAll('.side-rail button');
+ if(rail[1])rail[1].onclick=()=>$('spaceRide').scrollIntoView({behavior:'smooth'});
+ if(rail[2])rail[2].onclick=()=>$('timeRide').scrollIntoView({behavior:'smooth'});
+})();
+/* V4 kinetic layer; original data and selectors remain untouched */
+(function(){
+const svg=document.getElementById('expSvg'),NS='http://www.w3.org/2000/svg';
+for(let i=0;i<50;i++){let a=i*Math.PI*2/50;let line=document.createElementNS(NS,'line');line.setAttribute('x1',500+100*Math.cos(a));line.setAttribute('y1',500+100*Math.sin(a));line.setAttribute('x2',500+455*Math.cos(a));line.setAttribute('y2',500+455*Math.sin(a));line.setAttribute('stroke',i%2?'#7f8d7d':'#c1d4b4');line.setAttribute('stroke-opacity',i%5===0?'.85':'.47');line.setAttribute('stroke-width',i%5===0?'2.6':'1.3');svg.appendChild(line)}
+const exp=document.querySelector('.experience'),sticky=document.getElementById('expSticky'),ring=document.getElementById('expRing'),spokes=document.getElementById('expSpokes'),core=document.getElementById('expCore'),trace=document.getElementById('expTrace'),bar=document.getElementById('expBar');
+const steps=[['01 / ONE CITY','37,373,092','2025년 전체 서울에서 기록된 공공자전거 대여건수. 페달의 회전은 도시 전체의 움직임을 상징합니다.'],['02 / THE DISTRICTS','25','서울의 25개 자치구. 각 바퀴살은 서로 다른 지역의 이용 기록을 의미합니다.'],['03 / THE HOTSPOT','4,609,064','강서구의 누적 대여건수. 2025년 전체 서울 25개 자치구 중 가장 높았습니다.'],['04 / THE SEASON','4,024,315','6월 대여건수. 2025년 1~12월 중 가장 높은 월별 기록입니다.']];
+let current=-1,queued=false;
+function tick(){
+ queued=false;
+ const r=exp.getBoundingClientRect();
+ const viewport=window.innerHeight;
+ const range=Math.max(1,exp.offsetHeight-viewport);
+ const p=Math.max(0,Math.min(1,-r.top/range));
+ const smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)};
+ // Each component separates at a different point in the scroll timeline.
+ const rimP=smooth((p-.10)/.39), spokeP=smooth((p-.20)/.42), hubP=smooth((p-.31)/.37);
+ const mobile=matchMedia('(max-width:600px)').matches;
+ const tablet=matchMedia('(max-width:900px)').matches;
+ const k=mobile?.48:tablet?.7:1;
+ const rotate=p*125;
+ ring.style.transform=`translate3d(${-rimP*190*k}px,${-rimP*68*k}px,${rimP*200}px) rotateY(${rimP*37}deg) rotateZ(${rotate}deg) scale(${1-rimP*.045})`;
+ spokes.style.transform=`translate3d(${spokeP*172*k}px,${-spokeP*24*k}px,${-spokeP*145}px) rotateY(${-spokeP*32}deg) rotateZ(${-rotate*.78}deg) scale(${1-spokeP*.07})`;
+ core.style.transform=`translate3d(${hubP*18*k}px,${hubP*153*k}px,${hubP*245}px) rotateX(${hubP*19}deg) scale(${1+hubP*.31})`;
+ trace.style.transform=`rotate(${p*150}deg) scale(${1+spokeP*.18})`;
+ trace.style.opacity=String(.45+spokeP*.45);
+ sticky.classList.toggle('exploded',p>.48);
+ sticky.style.setProperty('--disassembly',String(Math.max(rimP,spokeP,hubP)));
+ bar.style.width=(p*100).toFixed(1)+'%';
+ document.getElementById('expStep').textContent=String(Math.round(p*100)).padStart(2,'0')+' / 100';
+ const index=Math.min(3,Math.floor(p*4));
+ if(index!==current){current=index;const st=steps[index];document.getElementById('expKicker').textContent=st[0];document.getElementById('expValue').textContent=st[1];document.getElementById('expDesc').textContent=st[2]}
+}function exploreEase(x){return 1-Math.pow(1-x,3)}
+function request(){if(!queued){queued=true;requestAnimationFrame(tick)}}
+addEventListener('scroll',request,{passive:true});addEventListener('resize',request);request();
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.section-head,.pane,.station-grid,.stripe').forEach(e=>{e.classList.add('reveal');io.observe(e)});
+if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){let glow=document.createElement('div');glow.className='cursor-glow';document.body.appendChild(glow);addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true})}
+})();
+(function newInsights(){
+ const $=id=>document.getElementById(id),format=n=>Math.round(n).toLocaleString('ko-KR'),months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],longMonths=['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+ const M=Array.from({length:12},(_,i)=>D.reduce((sum,d)=>sum+d.months[i],0));
+ const stage=$('terrainStage'),canvas=$('terrainCanvas'),seasonStage=$('seasonStage'),sc=$('seasonCanvas');
+ let order='net',selected=null,month=0,monthTimer=null,seasonPhase=0,terrainPhase=0,raf=0,last=0,visible=[false,false],mouse={x:-1,y:-1},peaks=[],drag=null;
+ const net=d=>d.rent-d.returns;
+ const ordered=()=>order==='net'?[...D].sort((a,b)=>Math.abs(net(b))-Math.abs(net(a))):[...D].sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+ const sumNet=D.reduce((a,d)=>a+net(d),0),maxAbs=Math.max(...D.map(d=>Math.abs(net(d))));
+ selected=[...D].sort((a,b)=>Math.abs(net(b))-Math.abs(net(a)))[0];
+ $('terrainTotal').textContent=(sumNet>=0?'+':'−')+format(Math.abs(sumNet));
+ function showDistrict(d){selected=d;$('terrainName').textContent=d.name;$('terrainRent').textContent=format(d.rent);$('terrainReturn').textContent=format(d.returns);$('terrainNet').textContent=(net(d)>=0?'+':'−')+format(Math.abs(net(d)));$('terrainNet').style.color=net(d)>=0?'#d7ff81':'#92d4e6';}
+ function resize(){for(const [i,c] of [canvas,sc].entries()){const r=(i?seasonStage:stage).getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);c.width=Math.round(r.width*dpr);c.height=Math.round(r.height*dpr);c.getContext('2d').setTransform(dpr,0,0,dpr,0,0)}drawTerrain();drawSeason()}
+ const p=(ctx,x,y)=>{ctx.lineTo(x,y)};
+ function drawTerrain(){
+ const ctx=canvas.getContext('2d'),w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;
+ ctx.clearRect(0,0,w,h);const mobile=w<720,arr=ordered(),N=arr.length;
+ const L=w*(mobile?.075:.085),R=w*(mobile?.925:.915),floorY=h*(mobile?.74:.79);
+ const dx=(R-L)/(N-1),maxHeight=h*(mobile?.40:.52),netVals=arr.map(net);
+ const maxNet=Math.max(...netVals.map(Math.abs));
+ const sample=(x)=>{let t=Math.max(0,Math.min(N-1,x)),i=Math.min(N-2,Math.floor(t)),f=t-i;
+  const ease=f*f*(3-2*f);return netVals[i]*(1-ease)+netVals[i+1]*ease};
+ // A true perspective height field: 25 measured peaks, continuous interpolated ridges,
+ // layered depth rows, and wireframe contours. No additional numerical observations are implied.
+ const field=(u,v)=>{const xi=u*(N-1),delta=sample(xi)/maxNet;
+   const shape=Math.pow(Math.max(0,1-v*v),1.4),ripple=(Math.sin(u*48+v*11)+Math.sin(u*81-v*17))*.012;
+   const elevation=(delta*.84+ripple*Math.abs(delta))*shape;
+   const depth=v*v;
+   return {x:L+u*(R-L)+(v-.5)*w*(mobile?.065:.11),
+     y:floorY-depth*h*(mobile?.35:.48)-elevation*maxHeight*(1-depth*.38)};
+ };
+ const bg=ctx.createRadialGradient(w*.48,h*.54,20,w*.5,h*.55,w*.8);
+ bg.addColorStop(0,'#152018');bg.addColorStop(.5,'#0a100c');bg.addColorStop(1,'#050807');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+ // Recurring depth grid is projected onto the same ground plane.
+ ctx.lineWidth=.7;
+ for(let k=0;k<=20;k++){const u=k/20;ctx.beginPath();for(let j=0;j<=30;j++){const v=j/30,p=field(u,v);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)}ctx.strokeStyle='rgba(184,215,177,.095)';ctx.stroke()}
+ for(let k=0;k<=16;k++){const v=k/16;ctx.beginPath();for(let j=0;j<=240;j++){const u=j/240,p=field(u,v);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)}ctx.strokeStyle='rgba(184,215,177,.07)';ctx.stroke()}
+ // Mountains are built back to front: bright topographic contour ribbons with atmospheric depth.
+ for(let row=36;row>=0;row--){const v=row/36;
+   ctx.beginPath();for(let j=0;j<=360;j++){const u=j/360,p=field(u,v);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)}
+   const front=1-v;ctx.strokeStyle=`rgba(215,249,204,${.13+front*.65})`;ctx.lineWidth=(row%5===0?1.3:.64)*(mobile?.83:1);ctx.stroke();
+ }
+ // Crosshatching: fine meridians emphasize the 3D surface instead of a flat area chart.
+ for(let j=0;j<=150;j++){const u=j/150;ctx.beginPath();for(let k=0;k<=55;k++){const v=k/55,p=field(u,v);k?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)}ctx.strokeStyle=`rgba(210,244,202,${j%5===0?.34:.115})`;ctx.lineWidth=j%5===0?.78:.42;ctx.stroke()}
+ // Particles follow the terrain, dense near major peaks.
+ for(let j=0;j<2100;j++){const u=((j*0.61803398875)%1),v=((j*0.754877666)%1),p=field(u,v);
+   const mag=Math.abs(sample(u*(N-1)))/maxNet;if(mag<.10 && j%4)continue;
+   ctx.beginPath();ctx.arc(p.x,p.y,(j%13===0?1.0:.48),0,Math.PI*2);
+   ctx.fillStyle=`rgba(229,251,219,${(.12+.42*mag)*(1-v*.65)})`;ctx.fill()}
+ // TRUE ZERO DATUM: the elevation=0 plane of the SAME perspective projection.
+ // For every depth v, y0=floorY-v²*depthScale, independent of district net value.
+ // This separates positive (above) from negative (below) values at each depth.
+ {
+   const depthScale=h*(mobile?.35:.48),skew=w*(mobile?.065:.11);
+   const zeroPoint=(u,v)=>({x:L+u*(R-L)+(v-.5)*skew,y:floorY-v*v*depthScale});
+   ctx.save();
+   // A sparse projected grid makes the zero level readable throughout the 3D surface.
+   ctx.strokeStyle='rgba(215,255,129,.25)';ctx.lineWidth=.75;
+   for(let j=0;j<=5;j++){
+     const v=j/5,a=zeroPoint(0,v),b=zeroPoint(1,v);
+     ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+   }
+   for(let j=0;j<=8;j++){
+     const u=j/8;ctx.beginPath();
+     for(let k=0;k<=36;k++){
+       const q=zeroPoint(u,k/36);k?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y);
+     }
+     ctx.stroke();
+   }
+   // The bold front datum uses exactly the same depth (v=.08) as district peaks.
+   // Therefore a positive peak is above this line, a negative peak below it.
+   const v=.08,a=zeroPoint(0,v),b=zeroPoint(1,v);
+   ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+   ctx.strokeStyle='#d7ff81';ctx.lineWidth=1.8;ctx.setLineDash([7,5]);ctx.stroke();
+   ctx.setLineDash([]);
+   ctx.font='bold 12px monospace';ctx.textAlign='right';ctx.fillStyle='#d7ff81';
+   ctx.fillText('0',Math.max(18,a.x-10),a.y+4);
+   ctx.restore();
+ }
+ // Front ridge labels and selectable measured values (no fabricated station-to-station flows).
+ peaks=arr.map((d,i)=>{const p=field(i/(N-1),.08);return {d,x:p.x,y:p.y,amount:net(d)}});
+ const highlight=peaks.find(n=>n.d===selected);
+ peaks.forEach((n,i)=>{const major=Math.abs(n.amount)/maxNet>.64,chosen=n.d===selected;
+  if(chosen||major){ctx.beginPath();ctx.arc(n.x,n.y,chosen?5:2.4,0,Math.PI*2);ctx.fillStyle=chosen?'#d6ff86':'#eff9e8';ctx.shadowColor='#d6ff86';ctx.shadowBlur=chosen?17:4;ctx.fill();ctx.shadowBlur=0;
+  ctx.textAlign='center';ctx.font=(chosen?'bold 13px':'10px')+' sans-serif';ctx.fillStyle='#f0f8e9';ctx.fillText(n.d.name,n.x,Math.max(22,n.y-18));}}
+ );
+ if(highlight){const x=highlight.x,y=highlight.y;ctx.setLineDash([4,5]);ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,Math.min(h-28,floorY+15));ctx.strokeStyle='rgba(214,255,134,.55)';ctx.stroke();ctx.setLineDash([])}
+ ctx.font='10px monospace';ctx.textAlign='left';ctx.fillStyle='#b5c9ae';ctx.fillText('25 DISTRICTS / NET = RENTALS − RETURNS',L,h-17);
+ ctx.textAlign='right';ctx.fillText('TOPOGRAPHIC DATA FIELD / INTERPOLATED',R,h-17);
+ }
+ function pickTerrain(e){const r=canvas.getBoundingClientRect(),x=e.clientX-r.left;let best=peaks[0],dist=Infinity;for(const n of peaks){const d=Math.abs(n.x-x);if(d<dist){best=n;dist=d}}if(best){showDistrict(best.d);drawTerrain()}}
+ // Desktop: hover selects districts without clicking. Touch: tap still selects.
+ canvas.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')pickTerrain(e)});
+ canvas.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')pickTerrain(e)});
+ canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')pickTerrain(e)});
+ $('terrainSort').onclick=()=>{order='net';$('terrainSort').setAttribute('aria-pressed','true');$('terrainAlpha').setAttribute('aria-pressed','false');terrainPhase=0};
+ $('terrainAlpha').onclick=()=>{order='alpha';$('terrainSort').setAttribute('aria-pressed','false');$('terrainAlpha').setAttribute('aria-pressed','true');terrainPhase=0};
+ $('terrainReset').onclick=()=>{order='net';showDistrict([...D].sort((a,b)=>Math.abs(net(b))-Math.abs(net(a)))[0]);$('terrainSort').setAttribute('aria-pressed','true');$('terrainAlpha').setAttribute('aria-pressed','false');terrainPhase=0};
+ function updateMonth(){const speed=speedForMonth(month);$('seasonRpm').textContent=speed.toFixed(2)+' RPS';$('seasonSpeedFill').style.width=(((speed-.12)/3.5)*100)+'%';$('seasonSpeedText').textContent=speed<.65?'SLOW / WINTER':speed<2?'ACCELERATING / SPRING':'FAST / PEAK MONTH';const value=M[month],delta=(value/M[0]-1)*100;$('seasonMonthLabel').textContent=longMonths[month]+' / 2025';$('seasonValue').textContent=format(value);$('seasonDelta').textContent=(delta>=0?'+':'')+delta.toFixed(1)+'%';$('seasonRange').value=String(month);[...$('seasonMonths').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===month)));[...$('seasonChart').children].forEach((b,i)=>b.classList.toggle('active',i===month))}
+ function setMonth(i){month=Math.max(0,Math.min(11,i));updateMonth();drawSeason()}
+ const mb=$('seasonMonths'),ch=$('seasonChart'),maximum=Math.max(...M);M.forEach((v,i)=>{let b=document.createElement('button');b.textContent=months[i];b.onclick=()=>setMonth(i);mb.append(b);let col=document.createElement('button');col.className='season-col';col.setAttribute('aria-label',months[i]+' '+format(v)+'건');col.onclick=()=>setMonth(i);let num=document.createElement('small');num.textContent=(v/1e6).toFixed(2)+'M';let bar=document.createElement('span');bar.className='season-bar';bar.style.height=(v/maximum*100)+'%';let label=document.createElement('b');label.textContent=months[i];col.append(num,bar,label);ch.append(col)});
+
+ function speedForMonth(i){
+   // A deliberately amplified, monotonic visual scale, not measured bicycle speed.
+   const lo=Math.min(...M),hi=Math.max(...M),t=(M[i]-lo)/(hi-lo||1);
+   return .12+3.5*Math.pow(t,1.65);
+ }
+ function drawSeason(){
+  const ctx=sc.getContext('2d'),w=seasonStage.clientWidth,h=seasonStage.clientHeight;
+  if(!w||!h)return;ctx.clearRect(0,0,w,h);
+  const mobile=w<720,cx=w*(mobile?.34:.245),cy=h*(mobile?.64:.64),r=Math.min(w*(mobile?.19:.115),h*(mobile?.145:.17));
+  const speed=speedForMonth(month),norm=(speed-.12)/3.5,phi=seasonPhase;
+  // 3D bicycle crankset: tilted gear plane, depth-separated chainrings and solid crank arms.
+  // The drawing uses an oblique 3D projection with actual front/rear faces, not a flat wheel illustration.
+  const project=(x,y,z=0)=>({x:cx+x*r*.96+y*r*.30+z*r*.54,y:cy+y*r*.82-x*r*.16-z*r*.35});
+  const pt=(a,rad,z)=>project(Math.cos(a)*rad,Math.sin(a)*rad,z);
+  const poly=(points,fill,stroke,width=1)=>{ctx.beginPath();points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()}};
+  const line=(points,stroke,width=1)=>{ctx.beginPath();points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()};
+  const ellipse=(rad,z,color,width=1)=>{const points=Array.from({length:145},(_,i)=>pt(i*Math.PI/72,rad,z));line(points,color,width)};
+  const bg=ctx.createRadialGradient(cx,cy,5,cx,cy,r*3);bg.addColorStop(0,`rgba(188,236,115,${.085+norm*.10})`);bg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+  // Exploded depth and a grounded shadow.
+  ctx.save();ctx.translate(0,r*1.05);ctx.scale(1,.26);let sh=ctx.createRadialGradient(cx,cy,0,cx,cy,r*2);sh.addColorStop(0,'rgba(178,238,119,.18)');sh.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=sh;ctx.beginPath();ctx.arc(cx,cy,r*2,0,Math.PI*2);ctx.fill();ctx.restore();
+  // Motion arcs, intentionally tied to month-by-month speed.
+  for(let i=0;i<Math.floor(norm*65);i++){const a=phi-i*.15,rad=1.23+(i%4)*.07;line([pt(a,rad,.03),pt(a+.08+norm*.24,rad,.03)],`rgba(208,255,146,${(.10+norm*.28)*(1-i/66)})`,1+norm*1.4)}
+  // Rear chainring, sidewall thickness and separate front gear faces.
+  const backZ=-.19,frontZ=.16;
+  ellipse(1.04,backZ,'#43573b',r*.095);ellipse(.72,backZ,'#73916c',2);
+  for(let i=0;i<68;i++){
+    const a=i*2*Math.PI/68+phi,b=a+2*Math.PI/68;
+    poly([pt(a,1.045,backZ),pt(b,1.045,backZ),pt(b,1.045,frontZ),pt(a,1.045,frontZ)],i%2?'#253725':'#30482a','#607e54',.5);
+  }
+  // Ring teeth rotate with the crank, with physically offset front/back layers.
+  for(let i=0;i<52;i++){
+    const a=phi+i*Math.PI*2/52,da=Math.PI*2/52;
+    poly([pt(a-da*.32,1.01,frontZ),pt(a-da*.21,1.11,frontZ),pt(a+da*.20,1.11,frontZ),pt(a+da*.32,1.01,frontZ)],i%2?'#c9ee9c':'#95ba77','#233b27',.7);
+  }
+  // Chainring is open: negative-space cutouts with five substantial 3D radial supports.
+  ellipse(.98,frontZ,'#d8f5b7',r*.10);ellipse(.76,frontZ,'#142417',r*.055);
+  for(let i=0;i<5;i++){
+    const a=phi+i*Math.PI*2/5;
+    const wing=[pt(a-.19,.20,frontZ+.03),pt(a-.15,.84,frontZ+.03),pt(a+.15,.84,frontZ+.03),pt(a+.19,.20,frontZ+.03)];
+    const side=wing.map(q=>({x:q.x+r*.045,y:q.y-r*.033}));
+    poly([wing[1],wing[2],side[2],side[1]],'#435d3b','#b8dca0',.8);
+    poly(wing,'#b8df95','#efffdb',1.2);
+    const hole=[pt(a-.055,.36,frontZ+.04),pt(a-.055,.65,frontZ+.04),pt(a+.055,.65,frontZ+.04),pt(a+.055,.36,frontZ+.04)];poly(hole,'#152516','#698a5c',.7);
+  }
+  ellipse(.20,frontZ+.08,'#e7ffd0',r*.13);
+  // Rear crank is visible as a distinct part behind the chainring.
+  const crank=(a,z,front)=>{
+    const q1=pt(a-.19,.13,z),q2=pt(a-.09,1.65,z),q3=pt(a+.09,1.65,z),q4=pt(a+.19,.13,z);
+    const depth=[q1,q2,q3,q4].map(q=>({x:q.x+r*.075,y:q.y-r*.055}));
+    poly([q2,q3,depth[2],depth[1]],front?'#6c9256':'#3e5938','#a6d281',1);
+    poly([q1,q2,q3,q4],front?'#d5f3b1':'#658d58',front?'#f0ffdf':'#8baa7c',front?2:1.5);
+    line([pt(a, .36,z+.04),pt(a,1.43,z+.04)],front?'#547448':'#314831',r*.045);
+    // A rectangular pedal body, with top and side faces in perspective.
+    const foot=pt(a,1.65,z+.08),fw=r*.28,fh=r*.10;
+    poly([{x:foot.x-fw,y:foot.y-fh},{x:foot.x+fw,y:foot.y-fh},{x:foot.x+fw+r*.08,y:foot.y-fh-r*.07},{x:foot.x-fw+r*.08,y:foot.y-fh-r*.07}],front?'#f0ffd6':'#a4c88c','#ecffd4',1);
+    poly([{x:foot.x-fw,y:foot.y-fh},{x:foot.x+fw,y:foot.y-fh},{x:foot.x+fw,y:foot.y+fh},{x:foot.x-fw,y:foot.y+fh}],front?'#385338':'#293f2c','#c9e5b0',1.2);
+    for(let k=-2;k<=2;k++)line([{x:foot.x+k*fw*.35,y:foot.y-fh*.65},{x:foot.x+k*fw*.35,y:foot.y+fh*.65}],front?'#b1d38d':'#769a67',1);
+    poly(Array.from({length:18},(_,i)=>{const t=i*Math.PI/9;return {x:foot.x+Math.cos(t)*r*.07,y:foot.y+Math.sin(t)*r*.07}}),'#172719','#e4ffd0',2);
+  };
+  crank(phi+Math.PI,-.38,false);
+  crank(phi,.36,true);
+  // Central bottom-bracket axle and bolt have separate visible depth.
+  const hub=project(0,0,.45);ctx.beginPath();ctx.ellipse(hub.x,hub.y,r*.14,r*.115,-.25,0,Math.PI*2);ctx.fillStyle='#18281a';ctx.fill();ctx.lineWidth=4;ctx.strokeStyle='#e5ffd0';ctx.stroke();ctx.beginPath();ctx.arc(hub.x,hub.y,r*.055,0,Math.PI*2);ctx.fillStyle='#d7f4b4';ctx.fill();
+  // Data callouts, not falsely claiming measured cycling speed.
+  ctx.textAlign='left';ctx.fillStyle='#b8d3ad';ctx.font='11px monospace';ctx.fillText('3D CRANKSET / CHAINRING + PEDAL',w*(mobile?.055:.52),h*.87);
+  ctx.fillStyle='#d7ff81';ctx.fillText('ROTATION ∝ MONTHLY RENTALS (STYLIZED)',w*(mobile?.055:.52),h*.91);
+ }
+ $('seasonRange').oninput=e=>setMonth(Number(e.target.value));$('seasonPlay').onclick=()=>{if(monthTimer){clearInterval(monthTimer);monthTimer=null;$('seasonPlay').textContent='▶ PLAY THE SEASON';$('seasonPlay').setAttribute('aria-pressed','false');return}setMonth(0);$('seasonPlay').textContent='Ⅱ PAUSE';$('seasonPlay').setAttribute('aria-pressed','true');monthTimer=setInterval(()=>{if(month===11){clearInterval(monthTimer);monthTimer=null;$('seasonPlay').textContent='▶ PLAY THE SEASON';$('seasonPlay').setAttribute('aria-pressed','false')}else setMonth(month+1)},1350)};
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const io=new IntersectionObserver(entries=>{entries.forEach(e=>visible[e.target===stage?0:1]=e.isIntersecting);if(visible.some(Boolean)&&!raf&&!reduced)raf=requestAnimationFrame(tick)},{threshold:.03});io.observe(stage);io.observe(seasonStage);
+ function tick(t){raf=0;const dt=Math.min(48,t-last||16);last=t;if(visible[0]){terrainPhase=Math.min(1,terrainPhase+dt*.0019);drawTerrain()}if(visible[1]){seasonPhase+=dt/1000*Math.PI*2*speedForMonth(month);drawSeason()}if(visible.some(Boolean))raf=requestAnimationFrame(tick)}
+ addEventListener('resize',resize,{passive:true});addEventListener('pagehide',()=>clearInterval(monthTimer));showDistrict(selected);updateMonth();terrainPhase=reduced?1:0;resize();
+})();
+</script>
+</body></html>
